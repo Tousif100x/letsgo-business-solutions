@@ -7,7 +7,7 @@ export const sectors: SectorConfig[] = [
     slug: 'hospitality',
     description: 'Luxury resorts, hotels, villas and hospitality experiences that create unforgettable memories.',
     icon: 'Hotel',
-    activeCount: 1,
+    activeCount: 2,
     status: 'active',
     image: '/media/sectors/hospitality.png',
     tintClass: 'bg-[#E9F2F9] text-[#1E3A5F] border-[#C2D6E7]',
@@ -37,6 +37,32 @@ export const sectors: SectorConfig[] = [
           { title: 'Direct Booking Engine', iconName: 'Bell' },
           { title: 'Interactive Room Galleries', iconName: 'Image' },
           { title: 'Personalized Guest Experiences', iconName: 'Gem' }
+        ],
+        badgeText: 'Live Showcase'
+      },
+      {
+        id: 'shahi-kitchen',
+        name: 'Shahi Kitchen',
+        slug: 'shahi-kitchen',
+        tagline: 'Local Restaurant Growth & WhatsApp Ordering',
+        shortDesc: 'A street-food hospitality showcase featuring instant category filters, real-time search, interactive cart builder, and automatic WhatsApp order templating.',
+        status: 'active',
+        path: '/sectors/hospitality/shahi-kitchen',
+        image: '/media/industries/shahi-kitchen/hero.png',
+        businessPains: [
+          'Paying 25-30% commission rates to aggregator apps (Zomato/Swiggy).',
+          'High dropout rate on complex multi-step mobile checkout flows.',
+          'No direct connection to local customers for repeat loyalty campaigns.'
+        ],
+        solutionsShowcased: [
+          'One-click WhatsApp order generation and checkout.',
+          'Fast single-page interactive menu with local search and veg filters.',
+          'Cached customer delivery details for frictionless two-tap repeat ordering.'
+        ],
+        features: [
+          { title: 'WhatsApp Direct Order', iconName: 'Bell' },
+          { title: 'Live Search & Filters', iconName: 'Image' },
+          { title: 'Local Delivery Validator', iconName: 'Gem' }
         ],
         badgeText: 'Live Showcase'
       }

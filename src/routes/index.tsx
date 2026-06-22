@@ -12,6 +12,7 @@ import Contact from '../pages/Contact';
 
 // Lazily loaded dynamic detail pages for showcases
 const ResortHome = React.lazy(() => import('../features/industries/resort/pages/ResortHome'));
+const ShahiKitchen = React.lazy(() => import('../features/industries/shahi-kitchen/pages/ShahiKitchen'));
 const BoutiqueHome = React.lazy(() => import('../features/industries/boutique/pages/BoutiqueHome'));
 const RajputanaHome = React.lazy(() => import('../features/industries/rajputana/pages/RajputanaHome'));
 const RajputanaJewellery = React.lazy(() => import('../features/industries/rajputana/pages/RajputanaJewellery'));
@@ -55,6 +56,7 @@ export const AppRoutes: React.FC = () => {
         <Route path="/sectors" element={<Sectors />} />
         <Route path="/sectors/:sectorSlug" element={<SectorDetail />} />
         <Route path="/sectors/hospitality/resort" element={<ResortHome />} />
+        <Route path="/sectors/hospitality/shahi-kitchen" element={<ShahiKitchen />} />
         <Route path="/sectors/fashion-lifestyle/aura-atelier" element={<BoutiqueHome />} />
         <Route path="/sectors/fashion-lifestyle/rajputana-heritage" element={<RajputanaHome />} />
         <Route path="/rajputana/jewellery" element={<RajputanaJewellery />} />
