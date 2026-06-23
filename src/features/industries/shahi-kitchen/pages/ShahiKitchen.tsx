@@ -565,7 +565,7 @@ _Generated via ShahiKitchen.com_`;
       </div>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden wood-texture py-16 md:py-24 border-b border-[#FAF5EB]/10">
+      <section className="relative overflow-hidden wood-texture py-12 md:py-16 border-b border-[#FAF5EB]/10">
         <div className="absolute inset-0 bg-[#1F0D07]/50 pointer-events-none" />
         
         <div className="relative max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center z-10">
@@ -635,34 +635,57 @@ _Generated via ShahiKitchen.com_`;
             </div>
           </div>
 
-          {/* Right Image Block */}
-          <div className="lg:col-span-6 relative flex justify-center">
-            
+          {/* Right Image Block with 3D Overlapping Food Collage */}
+          <div className="lg:col-span-6 relative flex justify-center py-6">
             {/* Dotted border circle highlight */}
-            <div className="absolute w-[300px] h-[300px] sm:w-[420px] sm:h-[420px] rounded-full border-2 border-dashed border-[#e0b252]/30 animate-spin-slow pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] rounded-full border-2 border-dashed border-[#e0b252]/20 animate-spin-slow pointer-events-none top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
             
-            {/* Visual food collage container */}
-            <div className="relative aspect-square w-full max-w-[380px] sm:max-w-[460px] rounded-3xl overflow-hidden shadow-2xl border border-[#FAF5EB]/10 bg-[#FAF5EB]/5 p-2">
-              <img
-                src="/media/industries/shahi-kitchen/hero.png"
-                alt="Delicious Indian street food burger pizza momos"
-                className="w-full h-full object-cover rounded-2xl opacity-90 transition-transform duration-700 hover:scale-102"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1F0D07]/60 via-transparent to-transparent pointer-events-none" />
+            <div className="relative w-full max-w-[380px] sm:max-w-[440px] aspect-square flex items-center justify-center">
               
-              {/* Floating Promo Badge */}
-              <div className="absolute top-6 right-6 bg-[#962624] text-[#FAF5EB] p-4 rounded-full shadow-lg border border-[#e0b252]/30 flex flex-col items-center justify-center w-24 h-24 text-center">
-                <span className="font-script text-xs leading-none text-[#e0b252] font-semibold">Delicious</span>
-                <span className="font-serif-royal text-sm font-extrabold tracking-wide uppercase leading-tight">Food</span>
-                <span className="font-sans text-[8px] tracking-widest uppercase leading-none opacity-80 mt-1">Great Mood</span>
+              {/* Layer 1: Base Collage Image */}
+              <div className="w-[85%] h-[85%] rounded-3xl overflow-hidden shadow-2xl border border-[#FAF5EB]/15 bg-[#FAF5EB]/5 p-1.5 z-0 transform hover:scale-[1.02] transition-transform duration-500 relative">
+                <img
+                  src="/media/industries/shahi-kitchen/hero.png"
+                  alt="Delicious Indian street food burger pizza momos"
+                  className="w-full h-full object-cover rounded-2xl opacity-90"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1F0D07]/60 via-transparent to-transparent pointer-events-none rounded-3xl" />
               </div>
+
+              {/* Layer 2: Overlapping Steaming Momos (Bottom-Left) */}
+              <div className="absolute bottom-[-15px] left-[-15px] sm:bottom-[-25px] sm:left-[-25px] w-[45%] aspect-square rounded-2xl overflow-hidden border-4 border-[#1F0D07] shadow-2xl z-20 transform hover:scale-[1.05] hover:z-30 transition-all duration-300">
+                <img
+                  src="/media/industries/shahi-kitchen/momos.png"
+                  alt="Steamed Paneer Momos"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-2 left-2 bg-black/75 text-[#e0b252] text-[8px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border border-[#FAF5EB]/10">Momos</div>
+              </div>
+
+              {/* Layer 3: Overlapping Sweet Kunafa (Top-Right) */}
+              <div className="absolute top-[-15px] right-[-15px] sm:top-[-25px] sm:right-[-25px] w-[42%] aspect-square rounded-2xl overflow-hidden border-4 border-[#1F0D07] shadow-2xl z-10 transform hover:scale-[1.05] hover:z-30 transition-all duration-300">
+                <img
+                  src="/media/industries/shahi-kitchen/kunafa.png"
+                  alt="Gourmet Cheese Kunafa"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-2 left-2 bg-black/75 text-[#e0b252] text-[8px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded border border-[#FAF5EB]/10">Kunafa</div>
+              </div>
+
+              {/* Layer 4: Floating Promo Badge (Centered-Right Overlapping) */}
+              <div className="absolute right-[-20px] sm:right-[-35px] bottom-[25%] bg-[#962624] text-[#FAF5EB] p-3 rounded-full shadow-2xl border border-[#e0b252]/40 flex flex-col items-center justify-center w-20 h-20 sm:w-24 sm:h-24 text-center z-30 animate-pulse">
+                <span className="font-script text-[10px] sm:text-xs leading-none text-[#e0b252] font-semibold">Delicious</span>
+                <span className="font-serif-royal text-xs sm:text-sm font-extrabold tracking-wide uppercase leading-tight">Food</span>
+                <span className="font-sans text-[7px] sm:text-[8px] tracking-widest uppercase leading-none opacity-80 mt-1">Great Mood</span>
+              </div>
+
             </div>
           </div>
         </div>
       </section>
 
       {/* Menu Categories Carousel/Strip */}
-      <section className="bg-[#1A0A03] py-8 border-b border-[#FAF5EB]/10">
+      <section className="bg-[#1A0A03] py-6 border-b border-[#FAF5EB]/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center space-y-2 mb-6">
             <div className="flex items-center justify-center space-x-3 text-[#e0b252]/60">
@@ -712,7 +735,7 @@ _Generated via ShahiKitchen.com_`;
       </section>
 
       {/* Specials & Best Sellers Section */}
-      <section ref={bestSellersRef} className="bg-[#FAF5EB] text-[#1E0D07] py-20 border-b border-[#FAF5EB]/10 relative">
+      <section ref={bestSellersRef} className="bg-[#FAF5EB] text-[#1E0D07] py-14 border-b border-[#FAF5EB]/10 relative">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left Dark Card - Best Sellers Menu */}
@@ -759,15 +782,15 @@ _Generated via ShahiKitchen.com_`;
           </div>
 
           {/* Center Column - Overlaying Images */}
-          <div className="lg:col-span-4 relative min-h-[300px] lg:min-h-auto flex items-center justify-center py-8">
+          <div className="lg:col-span-4 relative min-h-[300px] lg:min-h-auto flex items-center justify-center py-6">
             {/* Steaming Pizza image (top back) */}
-            <div className="absolute w-[180px] sm:w-[220px] aspect-square rounded-2xl overflow-hidden border border-[#1E0D07]/10 shadow-lg top-0 left-4 z-10 transition-transform hover:scale-105 duration-300">
+            <div className="absolute w-[210px] sm:w-[260px] aspect-square rounded-2xl overflow-hidden border border-[#1E0D07]/10 shadow-lg top-0 left-4 z-10 transition-transform hover:scale-108 duration-300">
               <img src="/media/industries/shahi-kitchen/pizza.png" alt="Steaming Pizza" className="w-full h-full object-cover" />
               <div className="absolute bottom-2 left-2 bg-[#1E0D07]/80 text-[#FAF5EB] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Pizza</div>
             </div>
 
             {/* Steaming Momos image (front middle) */}
-            <div className="relative w-[200px] sm:w-[240px] aspect-square rounded-3xl overflow-hidden border-4 border-[#FAF5EB] shadow-2xl z-20 transition-transform hover:scale-105 duration-300 -mt-4">
+            <div className="relative w-[230px] sm:w-[280px] aspect-square rounded-3xl overflow-hidden border-4 border-[#FAF5EB] shadow-2xl z-20 transition-transform hover:scale-108 duration-300 -mt-4">
               <img src="/media/industries/shahi-kitchen/momos.png" alt="Juicy Momos" className="w-full h-full object-cover" />
               <div className="absolute top-3 right-3 bg-[#962624] text-white p-2 rounded-full shadow-md text-center flex flex-col items-center justify-center w-12 h-12 border border-[#e0b252]/20">
                 <span className="font-script text-[9px] text-[#e0b252] font-semibold leading-none">Must</span>
@@ -776,7 +799,7 @@ _Generated via ShahiKitchen.com_`;
             </div>
 
             {/* Kunafa delight image (bottom right back) */}
-            <div className="absolute w-[160px] sm:w-[200px] aspect-square rounded-2xl overflow-hidden border border-[#1E0D07]/10 shadow-lg bottom-0 right-4 z-10 transition-transform hover:scale-105 duration-300">
+            <div className="absolute w-[180px] sm:w-[230px] aspect-square rounded-2xl overflow-hidden border border-[#1E0D07]/10 shadow-lg bottom-0 right-4 z-10 transition-transform hover:scale-108 duration-300">
               <img src="/media/industries/shahi-kitchen/kunafa.png" alt="Sweet Kunafa Dessert" className="w-full h-full object-cover" />
               <div className="absolute bottom-2 left-2 bg-[#1E0D07]/80 text-[#FAF5EB] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Kunafa</div>
             </div>
@@ -821,7 +844,7 @@ _Generated via ShahiKitchen.com_`;
             </div>
 
             {/* Chinese Promo Card */}
-            <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-[#1E0D07] border border-[#FAF5EB]/10 flex flex-col justify-end p-4 group">
+            <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[#1E0D07] border border-[#FAF5EB]/10 flex flex-col justify-end p-4 group">
               <img 
                 src="/media/industries/shahi-kitchen/hero.png" 
                 alt="Chinese Special Hakka Noodles" 
@@ -880,7 +903,7 @@ _Generated via ShahiKitchen.com_`;
       </section>
 
       {/* Full Menu Section (Searchable & Filterable) */}
-      <section ref={menuSectionRef} className="py-20 max-w-7xl mx-auto px-6 md:px-12 border-b border-[#FAF5EB]/10">
+      <section ref={menuSectionRef} className="py-14 max-w-7xl mx-auto px-6 md:px-12 border-b border-[#FAF5EB]/10">
         <div className="space-y-12">
           
           {/* Section Header */}
@@ -961,11 +984,11 @@ _Generated via ShahiKitchen.com_`;
                     className="bg-[#FAF5EB]/5 border border-[#FAF5EB]/10 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-[#e0b252]/40"
                   >
                     {/* Item Image area */}
-                    <div className="relative aspect-[16/10] overflow-hidden bg-[#FAF5EB]/5">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#FAF5EB]/5">
                       <img 
                         src={item.image} 
                         alt={item.name} 
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103" 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
                       
@@ -983,14 +1006,14 @@ _Generated via ShahiKitchen.com_`;
                       </span>
                     </div>
 
-                    {/* Content area */}
+                    {/* Content area: Food Image > Price > Description layout */}
                     <div className="p-5 flex-grow flex flex-col justify-between space-y-4">
                       <div className="space-y-2">
-                        <div className="flex justify-between items-start gap-4">
-                          <h4 className="font-serif-royal text-lg font-bold text-[#FAF5EB] group-hover:text-[#e0b252] transition-colors leading-tight">
-                            {item.name}
-                          </h4>
-                          <span className="font-bold text-[#e0b252] font-mono text-lg shrink-0">₹{item.price}</span>
+                        <h4 className="font-serif-royal text-lg font-bold text-[#FAF5EB] group-hover:text-[#e0b252] transition-colors leading-tight mb-1.5">
+                          {item.name}
+                        </h4>
+                        <div className="text-[#e0b252] font-mono text-xl font-bold mb-2">
+                          ₹{item.price}
                         </div>
                         <p className="text-xs text-[#FAF5EB]/65 leading-relaxed line-clamp-2">
                           {item.description}
@@ -1055,7 +1078,7 @@ _Generated via ShahiKitchen.com_`;
       </section>
 
       {/* Delivery Coverage Section & Input Validator */}
-      <section className="bg-[#FAF5EB] text-[#1E0D07] py-20 border-b border-[#FAF5EB]/10">
+      <section className="bg-[#FAF5EB] text-[#1E0D07] py-14 border-b border-[#FAF5EB]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Text / Info Panel */}
@@ -1146,8 +1169,8 @@ _Generated via ShahiKitchen.com_`;
       </section>
 
       {/* How Ordering Works (Process Timeline) */}
-      <section className="py-20 max-w-7xl mx-auto px-6 md:px-12 border-b border-[#FAF5EB]/10">
-        <div className="space-y-16">
+      <section className="py-14 max-w-7xl mx-auto px-6 md:px-12 border-b border-[#FAF5EB]/10">
+        <div className="space-y-12">
           <div className="text-center space-y-2">
             <span className="font-serif-royal text-xs font-bold uppercase tracking-[0.25em] text-[#e0b252]">EASY METHOD</span>
             <h2 className="font-serif-royal text-3xl font-extrabold text-[#FAF5EB]">How Ordering Works</h2>
@@ -1194,12 +1217,45 @@ _Generated via ShahiKitchen.com_`;
         </div>
       </section>
 
+      {/* Instagram / Reels Showcase */}
+      <section className="py-14 max-w-7xl mx-auto px-6 md:px-12 border-b border-[#FAF5EB]/10">
+        <div className="space-y-10">
+          <div className="text-center space-y-2">
+            <span className="font-serif-royal text-xs font-bold uppercase tracking-[0.25em] text-[#e0b252]">OUR SOCIAL FEED</span>
+            <h2 className="font-serif-royal text-3xl font-extrabold text-[#FAF5EB]">Instagram &amp; Reels Showcase</h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
+            {[1, 2, 3, 4, 5, 6].map((num, i) => (
+              <div 
+                key={i} 
+                className="group relative aspect-square rounded-2xl overflow-hidden shadow border border-[#FAF5EB]/10 bg-[#FAF5EB]/5 cursor-pointer"
+              >
+                <img 
+                  src={
+                    i % 3 === 0 ? '/media/industries/shahi-kitchen/momos.png' :
+                    i % 3 === 1 ? '/media/industries/shahi-kitchen/pizza.png' :
+                    '/media/industries/shahi-kitchen/kunafa.png'
+                  } 
+                  alt={`Instagram Showcase ${num}`} 
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108" 
+                />
+                <div className="absolute inset-0 bg-[#962624]/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="text-white text-xs font-bold uppercase tracking-widest font-sans bg-[#1E0D07]/90 px-3 py-1 rounded-full shadow-md border border-[#e0b252]/30">View Post</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Customer Reviews Section */}
-      <section ref={reviewsRef} className="bg-[#FAF5EB] text-[#1E0D07] py-20 border-b border-[#FAF5EB]/10">
+      <section ref={reviewsRef} className="bg-[#FAF5EB] text-[#1E0D07] py-14 border-b border-[#FAF5EB]/10">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Testimonial Cards Columns */}
-          <div className="lg:col-span-8 space-y-8">
+          <div className="lg:col-span-7 space-y-8">
             <div className="space-y-2 text-center lg:text-left">
               <span className="font-serif-royal text-xs font-bold uppercase tracking-[0.25em] text-[#FAF5EB] bg-[#1E0D07] px-3 py-1 rounded inline-block">
                 HAPPY CLIENTS
@@ -1282,62 +1338,29 @@ _Generated via ShahiKitchen.com_`;
             </div>
           </div>
 
-          {/* Right Column - QR Code Widget */}
-          <div className="lg:col-span-4 rounded-3xl bg-[#1E0D07] text-[#FAF5EB] p-8 border border-[#e0b252]/30 flex flex-col items-center justify-center text-center shadow-xl space-y-4 wood-texture-dark">
-            <span className="font-serif-royal text-[10px] font-bold tracking-widest text-[#e0b252] uppercase">DIGITAL CONVERSION</span>
+          {/* Right Column - Enlarge QR Code Widget */}
+          <div className="lg:col-span-5 rounded-3xl bg-[#1E0D07] text-[#FAF5EB] p-8 border border-[#e0b252]/30 flex flex-col items-center justify-center text-center shadow-xl space-y-6 wood-texture-dark transform hover:scale-[1.02] transition-transform duration-300">
+            <span className="font-serif-royal text-xs font-bold tracking-widest text-[#e0b252] uppercase">DIGITAL CONVERSION</span>
             
-            {/* Mock QR Code Visual */}
-            <div className="bg-white p-4 rounded-2xl shadow-inner border border-[#FAF5EB]/10 w-44 h-44 flex flex-col items-center justify-center">
+            {/* Mock Enlarge QR Code Visual */}
+            <div className="bg-white p-5 rounded-2xl shadow-inner border border-[#FAF5EB]/10 w-56 h-56 flex flex-col items-center justify-center relative">
               <img 
                 src="/media/industries/shahi-kitchen/momos.png" 
                 alt="QR Code" 
-                className="w-36 h-36 object-contain opacity-10 mix-blend-multiply absolute" 
+                className="w-48 h-48 object-contain opacity-10 mix-blend-multiply absolute" 
               />
               {/* Drawing simple lines as visual QR mockup */}
-              <div className="w-full h-full border-4 border-dashed border-[#1E0D07]/45 rounded-lg flex items-center justify-center text-center p-2">
-                <span className="font-sans text-[11px] font-bold text-[#1E0D07] leading-tight">SCAN TO VIEW MENU &amp; ORDER NOW!</span>
+              <div className="w-full h-full border-4 border-dashed border-[#1E0D07]/45 rounded-lg flex items-center justify-center text-center p-3">
+                <span className="font-sans text-sm font-extrabold text-[#1E0D07] leading-tight">SCAN TO VIEW MENU &amp; ORDER NOW!</span>
               </div>
             </div>
 
-            <div className="space-y-1">
-              <strong className="font-serif-royal text-sm block font-bold text-[#FAF5EB]">Scan directly from Table</strong>
-              <p className="text-[10px] text-[#FAF5EB]/50 leading-relaxed max-w-xs mx-auto">
+            <div className="space-y-2">
+              <strong className="font-serif-royal text-base block font-bold text-[#FAF5EB]">Scan directly from Table</strong>
+              <p className="text-xs text-[#FAF5EB]/50 leading-relaxed max-w-xs mx-auto">
                 No app installation required. Scan this custom QR code on dining tables or print brochures to open the digital order cart immediately.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Instagram / Reels Showcase */}
-      <section className="py-20 max-w-7xl mx-auto px-6 md:px-12 border-b border-[#FAF5EB]/10">
-        <div className="space-y-10">
-          <div className="text-center space-y-2">
-            <span className="font-serif-royal text-xs font-bold uppercase tracking-[0.25em] text-[#e0b252]">OUR SOCIAL FEED</span>
-            <h2 className="font-serif-royal text-3xl font-extrabold text-[#FAF5EB]">Instagram &amp; Reels Showcase</h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((num, i) => (
-              <div 
-                key={i} 
-                className="group relative aspect-square rounded-2xl overflow-hidden shadow border border-[#FAF5EB]/10 bg-[#FAF5EB]/5 cursor-pointer"
-              >
-                <img 
-                  src={
-                    i % 3 === 0 ? '/media/industries/shahi-kitchen/momos.png' :
-                    i % 3 === 1 ? '/media/industries/shahi-kitchen/pizza.png' :
-                    '/media/industries/shahi-kitchen/kunafa.png'
-                  } 
-                  alt={`Instagram Showcase ${num}`} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                />
-                <div className="absolute inset-0 bg-[#962624]/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute inset-0 flex items-center justify-center z-10 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-white text-xs font-bold uppercase tracking-widest font-sans bg-[#1E0D07]/90 px-3 py-1 rounded-full shadow-md border border-[#e0b252]/30">View Post</span>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
