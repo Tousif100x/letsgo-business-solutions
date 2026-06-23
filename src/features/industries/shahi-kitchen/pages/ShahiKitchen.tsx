@@ -60,7 +60,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Loaded with double liquid cheese, fresh mozzarella, and aromatic Shahi herbs.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/pizza_p1.png'
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'p2',
@@ -69,7 +69,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 179,
       description: 'Golden paneer cubes, mushrooms, red bell peppers, black olives, and sweet corn.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/pizza_p2.png'
+      image: 'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'p3',
@@ -78,7 +78,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 120,
       description: 'Single cheese blend over fresh basil leaves and our signature tangy house pizza sauce.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/pizza_p3.png'
+      image: 'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?auto=format&fit=crop&w=600&q=80'
     },
     // Burgers
     {
@@ -89,7 +89,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Crispy herb potato patty topped with a processed cheese slice, onion, lettuce, and rich eggless mayo.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/burger_b1.png'
+      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'b2',
@@ -98,7 +98,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 129,
       description: 'Double veg patty layered with double cheese, juicy tomato slices, and custom Shahi burger dressing.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/burger_b2.png'
+      image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'b3',
@@ -107,7 +107,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 149,
       description: 'Crunchy golden-fried chicken breast fillet topped with spicy fire sauce, fresh lettuce, and gherkins.',
       isVeg: false,
-      image: '/media/industries/shahi-kitchen/burger_b3.png'
+      image: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=600&q=80'
     },
     // Momos
     {
@@ -118,7 +118,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Double coated crunchy fried dumplings filled with paneer and herbs, served with fire sauce.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/momo_m1.png'
+      image: 'https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'm2',
@@ -127,7 +127,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 99,
       description: '8 pieces of soft steamed flour dumplings filled with seasoned grated paneer and spring onions.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/momo_m2.png'
+      image: 'https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'm3',
@@ -136,7 +136,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 119,
       description: 'Steamed momos tossed in tandoori spices and baked under a blanket of liquid cheese.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/momo_m3.png'
+      image: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=600&q=80'
     },
     // Sandwiches
     {
@@ -147,7 +147,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Triple layered grilled sandwich filled with marinated paneer tikka bits and coriander mint chutney.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/sandwich_s1.png'
+      image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 's2',
@@ -156,7 +156,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 79,
       description: 'Sweet golden corn and melted mozzarella mixture pressed between butter-brushed breads.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/sandwich_s2.png'
+      image: 'https://images.unsplash.com/photo-1509722747041-616f39b57900?auto=format&fit=crop&w=600&q=80'
     },
     // Chinese
     {
@@ -166,7 +166,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 109,
       description: 'Wok-tossed Hakka noodles with bell peppers, cabbage, onion, and a fiery in-house Schezwan sauce.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/chinese_c1.png'
+      image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'c2',
@@ -175,7 +175,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 119,
       description: 'Crispy deep-fried mixed vegetable balls tossed in soy, ginger, garlic, and green onion sauce.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/chinese_c2.png'
+      image: 'https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=600&q=80'
     },
     // French Fries
     {
@@ -185,7 +185,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 79,
       description: 'Crisp golden potato fingers dusted liberally with dry hot African peri-peri seasoning.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/fries_f1.png'
+      image: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'f2',
@@ -194,7 +194,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 119,
       description: 'Fries drenched in warm liquid cheese sauce, garnished with pickled jalapenos and spring onion greens.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/fries_f2.png'
+      image: 'https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600&q=80'
     },
     // South Indian
     {
@@ -204,7 +204,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 99,
       description: 'Thin crispy fermented rice crepe smeared with hot butter and loaded with savory potato masala.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/south_si1.png'
+      image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'si2',
@@ -213,7 +213,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 59,
       description: 'Fluffy steamed rice cakes served with hot lentils sambhar and coconut chutney.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/south_si2.png'
+      image: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=600&q=80'
     },
     // Indian Meals
     {
@@ -223,7 +223,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 149,
       description: 'Rich Shahi Paneer, creamy Dal Makhani, 2 Butter Roti, Jeera Rice, Salad, and Gulab Jamun.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/meal_im1.png'
+      image: 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'im2',
@@ -232,7 +232,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 99,
       description: 'Flavorful spiced chickpeas cooked Punjabi style, served with two hot and puffy bhature.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/meal_im2.png'
+      image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80'
     },
     // Kunafa Delights
     {
@@ -243,7 +243,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Classic vermicelli dessert with a hot cheese core, baked crispy and drizzled with orange blossom syrup.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/kunafa_kd1.png'
+      image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=600&q=80'
     },
     {
       id: 'kd2',
@@ -252,7 +252,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 279,
       description: 'Our crispy golden cheese kunafa layered and topped with molten Nutella chocolate sauce.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/kunafa_kd2.png'
+      image: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=600&q=80'
     }
   ];
 
@@ -645,7 +645,7 @@ _Generated via ShahiKitchen.com_`;
               {/* Layer 1: Base Collage Image */}
               <div className="w-[85%] h-[85%] rounded-3xl overflow-hidden shadow-2xl border border-[#FAF5EB]/15 bg-[#FAF5EB]/5 p-1.5 z-0 transform hover:scale-[1.02] transition-transform duration-500 relative">
                 <img
-                  src="/media/industries/shahi-kitchen/hero.png"
+                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80"
                   alt="Delicious Indian street food burger pizza momos"
                   className="w-full h-full object-cover rounded-2xl opacity-90"
                 />
@@ -655,7 +655,7 @@ _Generated via ShahiKitchen.com_`;
               {/* Layer 2: Overlapping Steaming Momos (Bottom-Left) */}
               <div className="absolute bottom-[-15px] left-[-15px] sm:bottom-[-25px] sm:left-[-25px] w-[45%] aspect-square rounded-2xl overflow-hidden border-4 border-[#1F0D07] shadow-2xl z-20 transform hover:scale-[1.05] hover:z-30 transition-all duration-300">
                 <img
-                  src="/media/industries/shahi-kitchen/momos.png"
+                  src="https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=400&q=80"
                   alt="Steamed Paneer Momos"
                   className="w-full h-full object-cover"
                 />
@@ -665,7 +665,7 @@ _Generated via ShahiKitchen.com_`;
               {/* Layer 3: Overlapping Sweet Kunafa (Top-Right) */}
               <div className="absolute top-[-15px] right-[-15px] sm:top-[-25px] sm:right-[-25px] w-[42%] aspect-square rounded-2xl overflow-hidden border-4 border-[#1F0D07] shadow-2xl z-10 transform hover:scale-[1.05] hover:z-30 transition-all duration-300">
                 <img
-                  src="/media/industries/shahi-kitchen/kunafa.png"
+                  src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?auto=format&fit=crop&w=400&q=80"
                   alt="Gourmet Cheese Kunafa"
                   className="w-full h-full object-cover"
                 />
@@ -785,13 +785,13 @@ _Generated via ShahiKitchen.com_`;
           <div className="lg:col-span-4 relative min-h-[300px] lg:min-h-auto flex items-center justify-center py-6">
             {/* Steaming Pizza image (top back) */}
             <div className="absolute w-[210px] sm:w-[260px] aspect-square rounded-2xl overflow-hidden border border-[#1E0D07]/10 shadow-lg top-0 left-4 z-10 transition-transform hover:scale-108 duration-300">
-              <img src="/media/industries/shahi-kitchen/pizza.png" alt="Steaming Pizza" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=500&q=80" alt="Steaming Pizza" className="w-full h-full object-cover" />
               <div className="absolute bottom-2 left-2 bg-[#1E0D07]/80 text-[#FAF5EB] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Pizza</div>
             </div>
 
             {/* Steaming Momos image (front middle) */}
             <div className="relative w-[230px] sm:w-[280px] aspect-square rounded-3xl overflow-hidden border-4 border-[#FAF5EB] shadow-2xl z-20 transition-transform hover:scale-108 duration-300 -mt-4">
-              <img src="/media/industries/shahi-kitchen/momos.png" alt="Juicy Momos" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?auto=format&fit=crop&w=500&q=80" alt="Juicy Momos" className="w-full h-full object-cover" />
               <div className="absolute top-3 right-3 bg-[#962624] text-white p-2 rounded-full shadow-md text-center flex flex-col items-center justify-center w-12 h-12 border border-[#e0b252]/20">
                 <span className="font-script text-[9px] text-[#e0b252] font-semibold leading-none">Must</span>
                 <span className="font-sans text-[10px] font-extrabold uppercase leading-none">Try!</span>
@@ -800,7 +800,7 @@ _Generated via ShahiKitchen.com_`;
 
             {/* Kunafa delight image (bottom right back) */}
             <div className="absolute w-[180px] sm:w-[230px] aspect-square rounded-2xl overflow-hidden border border-[#1E0D07]/10 shadow-lg bottom-0 right-4 z-10 transition-transform hover:scale-108 duration-300">
-              <img src="/media/industries/shahi-kitchen/kunafa.png" alt="Sweet Kunafa Dessert" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&w=500&q=80" alt="Sweet Kunafa Dessert" className="w-full h-full object-cover" />
               <div className="absolute bottom-2 left-2 bg-[#1E0D07]/80 text-[#FAF5EB] text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">Kunafa</div>
             </div>
           </div>
@@ -846,7 +846,7 @@ _Generated via ShahiKitchen.com_`;
             {/* Chinese Promo Card */}
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-[#1E0D07] border border-[#FAF5EB]/10 flex flex-col justify-end p-4 group">
               <img 
-                src="/media/industries/shahi-kitchen/hero.png" 
+                src="https://images.unsplash.com/photo-1585032226651-759b368d7246?auto=format&fit=crop&w=500&q=80" 
                 alt="Chinese Special Hakka Noodles" 
                 className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-102 transition-transform duration-500" 
               />
@@ -1226,18 +1226,21 @@ _Generated via ShahiKitchen.com_`;
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((num, i) => (
+            {[
+              'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80',
+              'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=400&q=80',
+              'https://images.unsplash.com/photo-1626804475297-41608ea09aeb?auto=format&fit=crop&w=400&q=80',
+              'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=400&q=80',
+              'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=400&q=80',
+              'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=400&q=80',
+            ].map((imgSrc, i) => (
               <div 
                 key={i} 
                 className="group relative aspect-square rounded-2xl overflow-hidden shadow border border-[#FAF5EB]/10 bg-[#FAF5EB]/5 cursor-pointer"
               >
                 <img 
-                  src={
-                    i % 3 === 0 ? '/media/industries/shahi-kitchen/momos.png' :
-                    i % 3 === 1 ? '/media/industries/shahi-kitchen/pizza.png' :
-                    '/media/industries/shahi-kitchen/kunafa.png'
-                  } 
-                  alt={`Instagram Showcase ${num}`} 
+                  src={imgSrc} 
+                  alt={`Instagram Showcase ${i + 1}`} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108" 
                 />
                 <div className="absolute inset-0 bg-[#962624]/20 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -1345,7 +1348,7 @@ _Generated via ShahiKitchen.com_`;
             {/* Mock Enlarge QR Code Visual */}
             <div className="bg-white p-5 rounded-2xl shadow-inner border border-[#FAF5EB]/10 w-56 h-56 flex flex-col items-center justify-center relative">
               <img 
-                src="/media/industries/shahi-kitchen/momos.png" 
+                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=400&q=80" 
                 alt="QR Code" 
                 className="w-48 h-48 object-contain opacity-10 mix-blend-multiply absolute" 
               />

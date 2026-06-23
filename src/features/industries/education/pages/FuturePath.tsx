@@ -511,37 +511,37 @@ export const FuturePath: React.FC = () => {
     {
       id: 'camp-1',
       title: 'Interactive Classrooms',
-      image: '/media/industries/education/campus1.png',
+      image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
       tag: 'Classroom Sessions'
     },
     {
       id: 'camp-2',
       title: '1-on-1 Doubt Clears',
-      image: '/media/industries/education/campus2.png',
+      image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80',
       tag: 'Doubt Solving'
     },
     {
       id: 'camp-3',
       title: 'National Mock Exams',
-      image: '/media/industries/education/campus3.png',
+      image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
       tag: 'Test Series'
     },
     {
       id: 'camp-4',
       title: 'Collaborative Study Spaces',
-      image: '/media/industries/education/campus4.png',
+      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80',
       tag: 'Group Discussions'
     },
     {
       id: 'camp-5',
       title: 'Direct Teacher Mentors',
-      image: '/media/industries/education/campus5.png',
+      image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80',
       tag: 'Teacher Guidance'
     },
     {
       id: 'camp-6',
       title: 'Conceptual Bootcamps',
-      image: '/media/industries/education/campus6.png',
+      image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80',
       tag: 'Academic Workshops'
     }
   ];

@@ -34,7 +34,7 @@ const BRIDAL_LOOKS: FeaturedLook[] = [
     price: 125000,
     fabrics: 'Pure Raw Silk in Antique Ivory',
     craft: '400 Hours of Zardozi & Muted Dabka Wirework',
-    image: '/media/industries/boutique/bridal.png',
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80',
     description: 'A classic heritage silhouette embroidered with geometric borders inspired by Mughal stone carvings.'
   },
   {
@@ -43,7 +43,7 @@ const BRIDAL_LOOKS: FeaturedLook[] = [
     price: 98000,
     fabrics: 'Handloomed Banarasi Silk',
     craft: 'Fine Tilla embroidery and antique gold thread details',
-    image: '/media/industries/boutique/courtyard.png',
+    image: 'https://images.unsplash.com/photo-1583391733956-62e1e97f7e28?auto=format&fit=crop&w=600&q=80',
     description: 'An unstructured classic drape for celebrations, blending heritage borders with comfortable contours.'
   }
 ];
@@ -55,7 +55,7 @@ const FESTIVE_LOOKS: FeaturedLook[] = [
     price: 48000,
     fabrics: 'Pure Silk Georgette in Muted Sage',
     craft: 'Lucknowi Chikankari & delicate pearl embellishments',
-    image: '/media/industries/boutique/festive.png',
+    image: 'https://images.unsplash.com/photo-1631201897867-9aed0b2a8aac?auto=format&fit=crop&w=600&q=80',
     description: 'An airy, full-flare silhouette featuring floral jali motifs woven by hand into lightweight fabric.'
   },
   {
@@ -76,7 +76,7 @@ const DESIGNER_LOOKS: FeaturedLook[] = [
     price: 35000,
     fabrics: 'Heavy Handwoven Varanasi Raw Silk',
     craft: 'Minimalist neckline embroidery with Antique Zari',
-    image: '/media/industries/boutique/designer.png',
+    image: 'https://images.unsplash.com/photo-1614940926897-5197af0eee4d?auto=format&fit=crop&w=600&q=80',
     description: 'A modern, clean-cut tailored set highlighting organic silk textures and hand-carved brass buttons.'
   },
   {
@@ -85,7 +85,7 @@ const DESIGNER_LOOKS: FeaturedLook[] = [
     price: 28000,
     fabrics: 'Linen-Silk Blend in Soft Clay',
     craft: 'Handblock printed motifs and pleated border accents',
-    image: '/media/industries/boutique/hero.png',
+    image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=600&q=80',
     description: 'Quiet luxury designed for modern styling, offering fluid drape lines and elegant movement.'
   }
 ];
@@ -97,7 +97,7 @@ const TAILORING_LOOKS: FeaturedLook[] = [
     price: 30000,
     fabrics: 'Custom selection from our Private Silk Archives',
     craft: 'Tailored precisely to your frame over 3 separate fittings',
-    image: '/media/industries/boutique/tailoring.png',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80',
     description: 'Our signature tailoring service. Work with our master drapers to sketch and draft your heirloom.'
   }
 ];
@@ -586,10 +586,10 @@ export const BoutiqueHome: React.FC = () => {
               <div className="lg:col-span-5 relative w-full aspect-[3/4] bg-[#F1E9DC] rounded-[40px] overflow-hidden border border-[#B08D57]/20 shadow-md">
                 <img 
                   src={
-                    activeWing === 'bridal' ? '/media/industries/boutique/bridal.png' :
-                    activeWing === 'festive' ? '/media/industries/boutique/festive.png' :
-                    activeWing === 'designer' ? '/media/industries/boutique/designer.png' :
-                    '/media/industries/boutique/tailoring.png'
+                    activeWing === 'bridal' ? 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80' :
+                    activeWing === 'festive' ? 'https://images.unsplash.com/photo-1583391733956-62e1e97f7e28?auto=format&fit=crop&w=600&q=80' :
+                    activeWing === 'designer' ? 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80' :
+                    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80'
                   }
                   alt="Atelier room mood display"
                   style={{ clipPath: 'url(#mughal-arch-clip)' }}
@@ -635,7 +635,7 @@ export const BoutiqueHome: React.FC = () => {
                 
                 <div className="aspect-[16/10] bg-[#F1E9DC] rounded-xl overflow-hidden border border-[#B08D57]/20 relative">
                   <img 
-                    src="/media/industries/boutique/courtyard.png" 
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=700&q=80" 
                     alt="Atelier drawing board" 
                     className="w-full h-full object-cover"
                   />

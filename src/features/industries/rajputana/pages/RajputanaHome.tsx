@@ -25,7 +25,7 @@ const JEWELLERY_COLLECTIONS: CollectionItem[] = [
     name: 'Jadau Collection',
     category: 'jewellery',
     tagline: 'Royal heirloom craftsmanship',
-    image: '/media/industries/rajputana/jadau.png', // Uncut diamonds jewellery closeup
+    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80',
     highlights: ['Bridal Sets', 'Wedding Jewellery', 'Handcrafted Pieces']
   },
   {
@@ -33,7 +33,7 @@ const JEWELLERY_COLLECTIONS: CollectionItem[] = [
     name: 'Meenakari Collection',
     category: 'jewellery',
     tagline: 'Vibrant traditions in every detail',
-    image: '/media/industries/rajputana/meenakari.png', // Enamelled jewellery closeup
+    image: 'https://images.unsplash.com/photo-1601121141461-9d6647bef0a1?auto=format&fit=crop&w=800&q=80',
     highlights: ['Enamel Jewellery', 'Vibrant Handwork', 'Heritage Designs']
   }
 ];
@@ -44,7 +44,7 @@ const SAREE_COLLECTIONS: CollectionItem[] = [
     name: 'Bandhani Collection',
     category: 'saree',
     tagline: 'Tie-dye heritage of Rajasthan',
-    image: '/media/industries/rajputana/bandhani.png', // Unique Bandhani model image
+    image: '/media/industries/rajputana/bandhani.png',
     highlights: ['Jodhpur Tie-Dye', 'Real Zari Borders', 'Auspicious Crimson']
   },
   {
@@ -52,7 +52,7 @@ const SAREE_COLLECTIONS: CollectionItem[] = [
     name: 'Leheriya Collection',
     category: 'saree',
     tagline: 'Vibrant waves of tradition',
-    image: '/media/industries/rajputana/leheriya.png', // Unique Leheriya model image
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=800&q=80',
     highlights: ['Diagonal Wave Dyes', 'Kota Silk Blends', 'Monsoon Festive Wear']
   },
   {
@@ -60,7 +60,7 @@ const SAREE_COLLECTIONS: CollectionItem[] = [
     name: 'Rajputi Collection',
     category: 'saree',
     tagline: 'Royal bridal elegance',
-    image: '/media/industries/rajputana/rajputi.png', // Unique Rajputi model image
+    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80',
     highlights: ['Bridal Gota Patti', 'Zardozi Embroidery', 'Pure Satin-Silk']
   },
   {
@@ -68,7 +68,7 @@ const SAREE_COLLECTIONS: CollectionItem[] = [
     name: 'Kota Doria Collection',
     category: 'saree',
     tagline: 'Light, elegant & timeless checked weaves',
-    image: '/media/industries/rajputana/kotadoria.png', // Unique Kota Doria model image
+    image: '/media/industries/rajputana/kotadoria.png',
     highlights: ['Traditional Khats', 'Pure Cotton-Silk', 'Breathable Heritage']
   },
   {
@@ -76,7 +76,7 @@ const SAREE_COLLECTIONS: CollectionItem[] = [
     name: 'Shaira Collection',
     category: 'saree',
     tagline: 'Graceful. Sophisticated. Unique.',
-    image: '/media/industries/rajputana/shaira.png', // Unique Shaira model image
+    image: 'https://images.unsplash.com/photo-1631201897867-9aed0b2a8aac?auto=format&fit=crop&w=800&q=80',
     highlights: ['Banarasi Katan Silk', 'Pure Silver Zari', 'Generational Heirlooms']
   }
 ];
@@ -435,7 +435,7 @@ export const RajputanaHome: React.FC = () => {
         {/* SECTION 5 — BRIDAL EXPERIENCE (80vh minimum, full bleed banner) */}
         <section id="bridal-section" className="relative min-h-[80vh] w-full flex items-center justify-center bg-black border-y border-[#C8A15A]/30 overflow-hidden">
           <img 
-            src="/media/industries/rajputana/courtyard.png" 
+            src="https://images.unsplash.com/photo-1614940926897-5197af0eee4d?auto=format&fit=crop&w=1400&q=80" 
             alt="Royal Bridal Attire and Zenana Palace Interior" 
             className="absolute inset-0 w-full h-full object-cover object-center opacity-85"
           />

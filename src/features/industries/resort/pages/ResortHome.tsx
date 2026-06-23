@@ -167,7 +167,7 @@ export const ResortHome: React.FC = () => {
 
           <div className="lg:col-span-6 relative aspect-[4/3] rounded overflow-hidden shadow-lg border border-brand-beige">
             <img
-              src="/media/industries/resort/hero_story.png"
+              src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80"
               alt="Luxury Pool View"
               className="w-full h-full object-cover"
             />
@@ -243,7 +243,7 @@ export const ResortHome: React.FC = () => {
               <div>
                 <div className="aspect-[4/3] w-full overflow-hidden relative">
                   <img
-                    src="/media/industries/resort/hero_villa.png"
+                    src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80"
                     alt="Premium Garden Villa"
                     className="object-cover w-full h-full"
                   />
@@ -280,7 +280,7 @@ export const ResortHome: React.FC = () => {
               <div>
                 <div className="aspect-[4/3] w-full overflow-hidden relative">
                   <img
-                    src="/media/industries/resort/suite_penthouse.png"
+                    src="https://images.unsplash.com/photo-1601918774516-5d4e0a07c4f3?auto=format&fit=crop&w=700&q=80"
                     alt="Royal Horizon Penthouse"
                     className="object-cover w-full h-full"
                   />
@@ -377,7 +377,7 @@ export const ResortHome: React.FC = () => {
             <div className="space-y-4 text-center">
               <div className="aspect-[3/4] rounded overflow-hidden border border-brand-beige shadow-sm">
                 <img
-                  src="/media/industries/resort/suite_spa.png"
+                  src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=600&q=80"
                   alt="Marine Spa Wellness"
                   className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                 />
@@ -391,7 +391,7 @@ export const ResortHome: React.FC = () => {
             <div className="space-y-4 text-center">
               <div className="aspect-[3/4] rounded overflow-hidden border border-brand-beige shadow-sm">
                 <img
-                  src="/media/industries/resort/hero_cruise.png"
+                  src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80"
                   alt="Yacht Coastal Excursions"
                   className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                 />
@@ -405,7 +405,7 @@ export const ResortHome: React.FC = () => {
             <div className="space-y-4 text-center">
               <div className="aspect-[3/4] rounded overflow-hidden border border-brand-beige shadow-sm">
                 <img
-                  src="/media/industries/resort/dining_helicopter.png"
+                  src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=600&q=80"
                   alt="Bespoke Private Tastings"
                   className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                 />
@@ -434,21 +434,21 @@ export const ResortHome: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 aspect-[2/1] md:aspect-[3/1] max-w-5xl mx-auto">
             <div className="rounded overflow-hidden border border-brand-beige relative group">
               <img
-                src="/media/industries/resort/hero_insta.png"
+                src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=500&q=80"
                 alt="Coastline"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="rounded overflow-hidden border border-brand-beige md:col-span-2 relative group">
               <img
-                src="/media/industries/resort/dining_insta.png"
+                src="https://images.unsplash.com/photo-1540541338537-71cf3b58c19a?auto=format&fit=crop&w=800&q=80"
                 alt="Beach Table"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="rounded overflow-hidden border border-brand-beige relative group">
               <img
-                src="/media/industries/resort/suite_insta.png"
+                src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=500&q=80"
                 alt="Lounge Suite"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
