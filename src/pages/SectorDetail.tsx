@@ -14,7 +14,10 @@ import {
   Gem,
   Shirt,
   Scissors,
-  User
+  User,
+  Compass,
+  TrendingUp,
+  Clock
 } from 'lucide-react';
 
 const showcaseIconMap: { [key: string]: React.ComponentType<any> } = {
@@ -24,6 +27,9 @@ const showcaseIconMap: { [key: string]: React.ComponentType<any> } = {
   Shirt,
   Scissors,
   User,
+  Compass,
+  TrendingUp,
+  Clock
 };
 
 export const SectorDetail: React.FC = () => {

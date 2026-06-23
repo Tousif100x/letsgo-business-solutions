@@ -141,13 +141,39 @@ export const sectors: SectorConfig[] = [
     slug: 'education',
     description: 'Schools, colleges, coaching institutes and training centers empowering the leaders of tomorrow.',
     icon: 'GraduationCap',
-    activeCount: 0,
-    status: 'coming-soon',
+    activeCount: 1,
+    status: 'active',
     image: '/media/sectors/education.png',
     tintClass: 'bg-[#FAF5EB] text-[#4A3B2B] border-[#EDE0CC]',
     accentTint: '#FAF5EB',
     mood: 'Knowledge & Growth',
-    showcases: []
+    showcases: [
+      {
+        id: 'future-path',
+        name: 'FuturePath Learning Hub',
+        slug: 'future-path',
+        tagline: 'Interactive Student-Centric Coaching Institute Showcase',
+        shortDesc: 'A premium coaching platform design showing that learning is exciting. Built with playfulness, interactive career pathways, batch selectors, and a custom enquiry portal.',
+        status: 'active',
+        path: '/sectors/education/future-path',
+        image: '/media/industries/education/hero.png',
+        businessPains: [
+          'Coaching institute websites feeling dry, academic, and excessively corporate.',
+          'High friction in getting students excited to explore courses and batch timings.',
+          'Lack of parent-oriented trust factors combined with student-friendly branding.'
+        ],
+        solutionsShowcased: [
+          'Interactive career exploration mapping card deck.',
+          'Playful progress roadmap for learning journey milestones.',
+          'Curved aesthetics and micro-animations instead of boring tables.'
+        ],
+        features: [
+          { title: 'Interactive Pathways', iconName: 'Compass' },
+          { title: 'Playful Learning Roadmap', iconName: 'TrendingUp' },
+          { title: 'Flexible Batch Timings', iconName: 'Clock' }
+        ]
+      }
+    ]
   },
   {
     id: 'fitness-recreation',
