@@ -79,7 +79,7 @@ export const RajputanaSarees: React.FC = () => {
       >
         
         {/* HEADER NAVIGATION */}
-        <header className="border-b border-[#C8A15A]/25 py-5 px-6 bg-[#FAF6EE]/95 sticky top-[73px] z-35 backdrop-blur-sm">
+        <header className="border-b border-[#C8A15A]/25 py-5 px-6 bg-[#FAF6EE]">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             
             {/* Logo */}
