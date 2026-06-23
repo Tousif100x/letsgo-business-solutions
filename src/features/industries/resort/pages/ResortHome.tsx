@@ -167,7 +167,7 @@ export const ResortHome: React.FC = () => {
 
           <div className="lg:col-span-6 relative aspect-[4/3] rounded overflow-hidden shadow-lg border border-brand-beige">
             <img
-              src="/media/industries/resort/hero.png"
+              src="/media/industries/resort/hero_story.png"
               alt="Luxury Pool View"
               className="w-full h-full object-cover"
             />
@@ -214,7 +214,7 @@ export const ResortHome: React.FC = () => {
                 <div className="p-6 space-y-3">
                   <div className="flex justify-between items-baseline">
                     <h3 className="font-serif text-xl text-brand-charcoal">Deluxe Ocean Suite</h3>
-                    <span className="font-serif text-lg font-bold text-brand-forest">$350<span className="text-xs font-sans text-brand-charcoal/50 font-normal">/nt</span></span>
+                    <span className="font-serif text-lg font-bold text-brand-forest">₹35,000<span className="text-xs font-sans text-brand-charcoal/50 font-normal">/nt</span></span>
                   </div>
                   <p className="font-sans text-xs text-brand-charcoal/60 leading-relaxed">
                     Spacious room with custom ivory limestone walls, private glass balcony, marble bathtub, and automated ocean views.
@@ -243,7 +243,7 @@ export const ResortHome: React.FC = () => {
               <div>
                 <div className="aspect-[4/3] w-full overflow-hidden relative">
                   <img
-                    src="/media/industries/resort/hero.png"
+                    src="/media/industries/resort/hero_villa.png"
                     alt="Premium Garden Villa"
                     className="object-cover w-full h-full"
                   />
@@ -251,7 +251,7 @@ export const ResortHome: React.FC = () => {
                 <div className="p-6 space-y-3">
                   <div className="flex justify-between items-baseline">
                     <h3 className="font-serif text-xl text-brand-charcoal">Premium Garden Villa</h3>
-                    <span className="font-serif text-lg font-bold text-brand-forest">$480<span className="text-xs font-sans text-brand-charcoal/50 font-normal">/nt</span></span>
+                    <span className="font-serif text-lg font-bold text-brand-forest">₹48,000<span className="text-xs font-sans text-brand-charcoal/50 font-normal">/nt</span></span>
                   </div>
                   <p className="font-sans text-xs text-brand-charcoal/60 leading-relaxed">
                     Detached private sanctuary nestled inside lush tropical gardens. Features personal heated dip pool and outdoor stone shower.
@@ -280,7 +280,7 @@ export const ResortHome: React.FC = () => {
               <div>
                 <div className="aspect-[4/3] w-full overflow-hidden relative">
                   <img
-                    src="/media/industries/resort/suite.png"
+                    src="/media/industries/resort/suite_penthouse.png"
                     alt="Royal Horizon Penthouse"
                     className="object-cover w-full h-full"
                   />
@@ -288,7 +288,7 @@ export const ResortHome: React.FC = () => {
                 <div className="p-6 space-y-3">
                   <div className="flex justify-between items-baseline">
                     <h3 className="font-serif text-xl text-brand-charcoal">Royal Horizon Penthouse</h3>
-                    <span className="font-serif text-lg font-bold text-brand-forest">$950<span className="text-xs font-sans text-brand-charcoal/50 font-normal">/nt</span></span>
+                    <span className="font-serif text-lg font-bold text-brand-forest">₹95,000<span className="text-xs font-sans text-brand-charcoal/50 font-normal">/nt</span></span>
                   </div>
                   <p className="font-sans text-xs text-brand-charcoal/60 leading-relaxed">
                     Our top-floor ultimate residency. Expansive private skydeck terrace, infinity hot pool, glass-walled kitchen, and chef access.
@@ -377,7 +377,7 @@ export const ResortHome: React.FC = () => {
             <div className="space-y-4 text-center">
               <div className="aspect-[3/4] rounded overflow-hidden border border-brand-beige shadow-sm">
                 <img
-                  src="/media/industries/resort/suite.png"
+                  src="/media/industries/resort/suite_spa.png"
                   alt="Marine Spa Wellness"
                   className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                 />
@@ -391,7 +391,7 @@ export const ResortHome: React.FC = () => {
             <div className="space-y-4 text-center">
               <div className="aspect-[3/4] rounded overflow-hidden border border-brand-beige shadow-sm">
                 <img
-                  src="/media/industries/resort/hero.png"
+                  src="/media/industries/resort/hero_cruise.png"
                   alt="Yacht Coastal Excursions"
                   className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                 />
@@ -405,7 +405,7 @@ export const ResortHome: React.FC = () => {
             <div className="space-y-4 text-center">
               <div className="aspect-[3/4] rounded overflow-hidden border border-brand-beige shadow-sm">
                 <img
-                  src="/media/industries/resort/dining.png"
+                  src="/media/industries/resort/dining_helicopter.png"
                   alt="Bespoke Private Tastings"
                   className="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-500"
                 />
@@ -434,21 +434,21 @@ export const ResortHome: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 aspect-[2/1] md:aspect-[3/1] max-w-5xl mx-auto">
             <div className="rounded overflow-hidden border border-brand-beige relative group">
               <img
-                src="/media/industries/resort/hero.png"
+                src="/media/industries/resort/hero_insta.png"
                 alt="Coastline"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="rounded overflow-hidden border border-brand-beige md:col-span-2 relative group">
               <img
-                src="/media/industries/resort/dining.png"
+                src="/media/industries/resort/dining_insta.png"
                 alt="Beach Table"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="rounded overflow-hidden border border-brand-beige relative group">
               <img
-                src="/media/industries/resort/suite.png"
+                src="/media/industries/resort/suite_insta.png"
                 alt="Lounge Suite"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

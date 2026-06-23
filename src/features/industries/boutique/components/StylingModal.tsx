@@ -26,19 +26,19 @@ interface StylingModalProps {
 const CONSULTATION_TYPES: ConsultationType[] = [
   { 
     name: 'Seasonal Wardrobe Refresh', 
-    price: 250, 
+    price: 25000, 
     defaultSessions: 2,
     description: 'A complete curation of seasonal pieces aligned with your lifestyle and personal aesthetic.' 
   },
   { 
     name: 'Special Event Styling', 
-    price: 180, 
+    price: 18000, 
     defaultSessions: 1,
     description: 'Perfect for galas, keynotes, or formal milestones. Handpicked head-to-toe options.' 
   },
   { 
     name: 'Bridal & Formal Styling', 
-    price: 450, 
+    price: 45000, 
     defaultSessions: 3,
     description: 'Bespoke design, coordinate alterations, and complete visual outfit maps for your special event.' 
   },
@@ -46,8 +46,8 @@ const CONSULTATION_TYPES: ConsultationType[] = [
 
 const STYLIST_OPTIONS: StylistOption[] = [
   { name: 'Associate Stylist', feePerSession: 0, tier: 'Associate', specialty: 'Contemporary Silhouettes' },
-  { name: 'Senior Wardrobe Director', feePerSession: 100, tier: 'Senior', specialty: 'Festive & Classic Drapes' },
-  { name: 'Principal Creative Director', feePerSession: 250, tier: 'Principal', specialty: 'Bridal Trousseau Curation' },
+  { name: 'Senior Wardrobe Director', feePerSession: 10000, tier: 'Senior', specialty: 'Festive & Classic Drapes' },
+  { name: 'Principal Creative Director', feePerSession: 25000, tier: 'Principal', specialty: 'Bridal Trousseau Curation' },
 ];
 
 export const StylingModal: React.FC<StylingModalProps> = ({
@@ -84,12 +84,12 @@ export const StylingModal: React.FC<StylingModalProps> = ({
 
   // Investment calculations
   const baseTotal = selectedType.price * sessions;
-  const formatTotal = format === 'in-person' ? 70 : 0;
+  const formatTotal = format === 'in-person' ? 7000 : 0;
   const stylistTotal = selectedStylist.feePerSession * sessions;
   
-  const styleBoardTotal = addStyleBoard ? 50 : 0;
-  const tailoringTotal = addTailoring ? 120 : 0;
-  const conciergeTotal = addConcierge ? 80 : 0;
+  const styleBoardTotal = addStyleBoard ? 5000 : 0;
+  const tailoringTotal = addTailoring ? 12000 : 0;
+  const conciergeTotal = addConcierge ? 8000 : 0;
   
   const estimatedTotal = baseTotal + formatTotal + stylistTotal + styleBoardTotal + tailoringTotal + conciergeTotal;
 
@@ -185,7 +185,7 @@ export const StylingModal: React.FC<StylingModalProps> = ({
                 >
                   {CONSULTATION_TYPES.map((type) => (
                     <option key={type.name} value={type.name}>
-                      {type.name} (${type.price}/session)
+                      {type.name} (₹{type.price.toLocaleString('en-IN')}/session)
                     </option>
                   ))}
                 </select>
@@ -206,7 +206,7 @@ export const StylingModal: React.FC<StylingModalProps> = ({
                     className="w-full bg-[#F1E9DC]/35 border border-[#B08D57]/25 rounded-xl px-3 py-2.5 text-xs text-[#2B2B2B] focus:outline-none focus:border-[#3E5A46]"
                   >
                     <option value="virtual">Virtual Video Consult</option>
-                    <option value="in-person">Atelier Studio Fitting (+$70)</option>
+                    <option value="in-person">Atelier Studio Fitting (+₹7,000)</option>
                   </select>
                 </div>
                 <div>
@@ -243,7 +243,7 @@ export const StylingModal: React.FC<StylingModalProps> = ({
                   >
                     {STYLIST_OPTIONS.map((stylist) => (
                       <option key={stylist.name} value={stylist.name}>
-                        {stylist.name} {stylist.feePerSession > 0 ? `(+$${stylist.feePerSession}/session)` : '(Included)'}
+                        {stylist.name} {stylist.feePerSession > 0 ? `(+₹${stylist.feePerSession.toLocaleString('en-IN')}/session)` : '(Included)'}
                       </option>
                     ))}
                   </select>
@@ -269,18 +269,18 @@ export const StylingModal: React.FC<StylingModalProps> = ({
                 <div className="space-y-2.5 text-xs text-[#2B2B2B]/75">
                   <div className="flex justify-between">
                     <span>{selectedType.name}</span>
-                    <span className="font-semibold text-[#2B2B2B]">${baseTotal}</span>
+                    <span className="font-semibold text-[#2B2B2B]">₹{baseTotal.toLocaleString('en-IN')}</span>
                   </div>
                   {format === 'in-person' && (
                     <div className="flex justify-between">
                       <span>In-Person Travel Fee</span>
-                      <span className="font-semibold text-[#2B2B2B]">${formatTotal}</span>
+                      <span className="font-semibold text-[#2B2B2B]">₹{formatTotal.toLocaleString('en-IN')}</span>
                     </div>
                   )}
                   {selectedStylist.feePerSession > 0 && (
                     <div className="flex justify-between">
                       <span>{selectedStylist.tier} Director Fee</span>
-                      <span className="font-semibold text-[#2B2B2B]">${stylistTotal}</span>
+                      <span className="font-semibold text-[#2B2B2B]">₹{stylistTotal.toLocaleString('en-IN')}</span>
                     </div>
                   )}
                   
@@ -298,7 +298,7 @@ export const StylingModal: React.FC<StylingModalProps> = ({
                         />
                         <span>Digital style catalog</span>
                       </span>
-                      <span className="font-semibold text-[#2B2B2B]">${styleBoardTotal}</span>
+                      <span className="font-semibold text-[#2B2B2B]">₹{styleBoardTotal.toLocaleString('en-IN')}</span>
                     </label>
 
                     <label className="flex items-center justify-between text-[11px] cursor-pointer">
@@ -311,7 +311,7 @@ export const StylingModal: React.FC<StylingModalProps> = ({
                         />
                         <span>Tailor fitting session</span>
                       </span>
-                      <span className="font-semibold text-[#2B2B2B]">${tailoringTotal}</span>
+                      <span className="font-semibold text-[#2B2B2B]">₹{tailoringTotal.toLocaleString('en-IN')}</span>
                     </label>
 
                     <label className="flex items-center justify-between text-[11px] cursor-pointer">
@@ -324,7 +324,7 @@ export const StylingModal: React.FC<StylingModalProps> = ({
                         />
                         <span>Priority delivery concierge</span>
                       </span>
-                      <span className="font-semibold text-[#2B2B2B]">${conciergeTotal}</span>
+                      <span className="font-semibold text-[#2B2B2B]">₹{conciergeTotal.toLocaleString('en-IN')}</span>
                     </label>
                   </div>
                 </div>
@@ -333,7 +333,7 @@ export const StylingModal: React.FC<StylingModalProps> = ({
               <div className="pt-4 border-t border-[#B08D57]/20 space-y-4">
                 <div className="flex justify-between items-baseline">
                   <span className="font-serif text-sm font-bold text-[#2B2B2B]">Estimated Quote</span>
-                  <span className="font-serif text-2xl font-bold text-[#3E5A46]">${estimatedTotal}</span>
+                  <span className="font-serif text-2xl font-bold text-[#3E5A46]">₹{estimatedTotal.toLocaleString('en-IN')}</span>
                 </div>
                 <p className="text-[9px] text-[#2B2B2B]/50 leading-relaxed">
                   *All prices are simulated demonstration valuations. Finalized requests are prefilled into our lead generation pipeline.

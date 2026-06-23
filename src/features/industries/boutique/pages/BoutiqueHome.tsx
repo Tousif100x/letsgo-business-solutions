@@ -31,7 +31,7 @@ const BRIDAL_LOOKS: FeaturedLook[] = [
   {
     id: 'bridal-1',
     name: 'The Noor Mahal Lehenga',
-    price: 1250,
+    price: 125000,
     fabrics: 'Pure Raw Silk in Antique Ivory',
     craft: '400 Hours of Zardozi & Muted Dabka Wirework',
     image: '/media/industries/boutique/bridal.png',
@@ -40,10 +40,10 @@ const BRIDAL_LOOKS: FeaturedLook[] = [
   {
     id: 'bridal-2',
     name: 'Shehnai Terracotta Sherwani',
-    price: 980,
+    price: 98000,
     fabrics: 'Handloomed Banarasi Silk',
     craft: 'Fine Tilla embroidery and antique gold thread details',
-    image: '/media/industries/boutique/tailoring.png',
+    image: '/media/industries/boutique/courtyard.png',
     description: 'An unstructured classic drape for celebrations, blending heritage borders with comfortable contours.'
   }
 ];
@@ -52,7 +52,7 @@ const FESTIVE_LOOKS: FeaturedLook[] = [
   {
     id: 'festive-1',
     name: 'Darbar Mint Anarkali',
-    price: 480,
+    price: 48000,
     fabrics: 'Pure Silk Georgette in Muted Sage',
     craft: 'Lucknowi Chikankari & delicate pearl embellishments',
     image: '/media/industries/boutique/festive.png',
@@ -61,7 +61,7 @@ const FESTIVE_LOOKS: FeaturedLook[] = [
   {
     id: 'festive-2',
     name: 'Jali Tissue Dupatta',
-    price: 220,
+    price: 22000,
     fabrics: 'Chanderi Kora Silk Tissue',
     craft: 'Woven antique gold borders & floral block-print center',
     image: '/media/industries/boutique/lookbook.png',
@@ -73,7 +73,7 @@ const DESIGNER_LOOKS: FeaturedLook[] = [
   {
     id: 'designer-1',
     name: 'Heritage Emerald Kurta Set',
-    price: 350,
+    price: 35000,
     fabrics: 'Heavy Handwoven Varanasi Raw Silk',
     craft: 'Minimalist neckline embroidery with Antique Zari',
     image: '/media/industries/boutique/designer.png',
@@ -82,7 +82,7 @@ const DESIGNER_LOOKS: FeaturedLook[] = [
   {
     id: 'designer-2',
     name: 'Terracotta Palazzo Drape',
-    price: 280,
+    price: 28000,
     fabrics: 'Linen-Silk Blend in Soft Clay',
     craft: 'Handblock printed motifs and pleated border accents',
     image: '/media/industries/boutique/hero.png',
@@ -94,7 +94,7 @@ const TAILORING_LOOKS: FeaturedLook[] = [
   {
     id: 'tailoring-1',
     name: 'Bespoke Atelier Design Session',
-    price: 300,
+    price: 30000,
     fabrics: 'Custom selection from our Private Silk Archives',
     craft: 'Tailored precisely to your frame over 3 separate fittings',
     image: '/media/industries/boutique/tailoring.png',
@@ -690,7 +690,7 @@ export const BoutiqueHome: React.FC = () => {
                     </div>
 
                     <div className="border-t border-[#B08D57]/15 mt-6 pt-4 flex items-center justify-between">
-                      <span className="font-serif text-lg font-bold text-[#2B2B2B]">${look.price}</span>
+                      <span className="font-serif text-lg font-bold text-[#2B2B2B]">₹{look.price.toLocaleString('en-IN')}</span>
                       <Button 
                         onClick={() => openStylingWithService(activeWing === 'bridal' ? 'Bridal & Formal Styling' : activeWing === 'festive' ? 'Seasonal Wardrobe Refresh' : activeWing === 'designer' ? 'Special Event Styling' : 'Seasonal Wardrobe Refresh')}
                         className="bg-[#3E5A46] text-white hover:bg-[#3E5A46]/95 border-none text-[9px] uppercase tracking-widest font-bold py-2.5 px-5 rounded"

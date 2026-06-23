@@ -16,9 +16,9 @@ interface BookingModalProps {
 }
 
 const ROOM_OPTIONS: RoomType[] = [
-  { name: 'Deluxe Ocean Suite', price: 350, maxGuests: 3 },
-  { name: 'Premium Garden Villa', price: 480, maxGuests: 4 },
-  { name: 'Royal Horizon Penthouse', price: 950, maxGuests: 6 },
+  { name: 'Deluxe Ocean Suite', price: 35000, maxGuests: 3 },
+  { name: 'Premium Garden Villa', price: 48000, maxGuests: 4 },
+  { name: 'Royal Horizon Penthouse', price: 95000, maxGuests: 6 },
 ];
 
 export const BookingModal: React.FC<BookingModalProps> = ({
@@ -48,9 +48,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   // Pricing calculations
   const roomBaseTotal = selectedRoom.price * nights;
-  const spaTotal = addSpa ? 150 * adults : 0;
-  const yachtTotal = addYacht ? 250 : 0;
-  const transferTotal = addTransfer ? 75 : 0;
+  const spaTotal = addSpa ? 15000 * adults : 0;
+  const yachtTotal = addYacht ? 25000 : 0;
+  const transferTotal = addTransfer ? 7500 : 0;
   const estimatedTotal = roomBaseTotal + spaTotal + yachtTotal + transferTotal;
 
   const handleBookingRequest = (e: React.FormEvent) => {
@@ -126,7 +126,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 >
                   {ROOM_OPTIONS.map((room) => (
                     <option key={room.name} value={room.name}>
-                      {room.name} (${room.price}/night)
+                      {room.name} (₹{room.price.toLocaleString('en-IN')}/night)
                     </option>
                   ))}
                 </select>
@@ -208,7 +208,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     onChange={(e) => setAddSpa(e.target.checked)}
                     className="rounded border-brand-beige text-brand-forest focus:ring-brand-forest"
                   />
-                  <span>Spa &amp; Wellness Program (+$150/adult)</span>
+                  <span>Spa &amp; Wellness Program (+₹15,000/adult)</span>
                 </label>
                 <label className="flex items-center space-x-3 text-xs text-brand-charcoal/80 cursor-pointer">
                   <input
@@ -217,7 +217,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     onChange={(e) => setAddYacht(e.target.checked)}
                     className="rounded border-brand-beige text-brand-forest focus:ring-brand-forest"
                   />
-                  <span>Yacht Coastal Tour (+$250 flat)</span>
+                  <span>Yacht Coastal Tour (+₹25,000 flat)</span>
                 </label>
                 <label className="flex items-center space-x-3 text-xs text-brand-charcoal/80 cursor-pointer">
                   <input
@@ -226,7 +226,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     onChange={(e) => setAddTransfer(e.target.checked)}
                     className="rounded border-brand-beige text-brand-forest focus:ring-brand-forest"
                   />
-                  <span>Private Airport Transfer (+$75 flat)</span>
+                  <span>Private Airport Transfer (+₹7,500 flat)</span>
                 </label>
               </div>
             </div>
@@ -241,24 +241,24 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 <div className="space-y-2 text-xs font-sans text-brand-charcoal/70">
                   <div className="flex justify-between">
                     <span>{selectedRoom.name} ({nights} nights)</span>
-                    <span className="font-semibold text-brand-charcoal">${roomBaseTotal}</span>
+                    <span className="font-semibold text-brand-charcoal">₹{roomBaseTotal.toLocaleString('en-IN')}</span>
                   </div>
                   {addSpa && (
                     <div className="flex justify-between">
                       <span>Spa &amp; Wellness ({adults} guests)</span>
-                      <span className="font-semibold text-brand-charcoal">${spaTotal}</span>
+                      <span className="font-semibold text-brand-charcoal">₹{spaTotal.toLocaleString('en-IN')}</span>
                     </div>
                   )}
                   {addYacht && (
                     <div className="flex justify-between">
                       <span>Yacht Excursion</span>
-                      <span className="font-semibold text-brand-charcoal">${yachtTotal}</span>
+                      <span className="font-semibold text-brand-charcoal">₹{yachtTotal.toLocaleString('en-IN')}</span>
                     </div>
                   )}
                   {addTransfer && (
                     <div className="flex justify-between">
                       <span>Private Transfer</span>
-                      <span className="font-semibold text-brand-charcoal">${transferTotal}</span>
+                      <span className="font-semibold text-brand-charcoal">₹{transferTotal.toLocaleString('en-IN')}</span>
                     </div>
                   )}
                 </div>
@@ -267,7 +267,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <div className="pt-6 border-t border-brand-beige mt-6 space-y-4">
                 <div className="flex justify-between items-baseline">
                   <span className="font-serif text-base font-semibold text-brand-charcoal">Estimated Total</span>
-                  <span className="font-serif text-3xl font-bold text-brand-forest">${estimatedTotal}</span>
+                  <span className="font-serif text-3xl font-bold text-brand-forest">₹{estimatedTotal.toLocaleString('en-IN')}</span>
                 </div>
                 <p className="font-sans text-[10px] text-brand-charcoal/50 leading-normal">
                   *This estimation excludes OTA fees. All requests are routed straight to LBS consultation advisors for simulated validation.

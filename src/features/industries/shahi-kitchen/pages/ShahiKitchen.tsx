@@ -60,7 +60,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Loaded with double liquid cheese, fresh mozzarella, and aromatic Shahi herbs.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/pizza.png'
+      image: '/media/industries/shahi-kitchen/pizza_p1.png'
     },
     {
       id: 'p2',
@@ -69,7 +69,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 179,
       description: 'Golden paneer cubes, mushrooms, red bell peppers, black olives, and sweet corn.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/pizza.png'
+      image: '/media/industries/shahi-kitchen/pizza_p2.png'
     },
     {
       id: 'p3',
@@ -78,7 +78,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 120,
       description: 'Single cheese blend over fresh basil leaves and our signature tangy house pizza sauce.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/pizza.png'
+      image: '/media/industries/shahi-kitchen/pizza_p3.png'
     },
     // Burgers
     {
@@ -89,7 +89,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Crispy herb potato patty topped with a processed cheese slice, onion, lettuce, and rich eggless mayo.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/burger_b1.png'
     },
     {
       id: 'b2',
@@ -98,7 +98,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 129,
       description: 'Double veg patty layered with double cheese, juicy tomato slices, and custom Shahi burger dressing.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/burger_b2.png'
     },
     {
       id: 'b3',
@@ -107,7 +107,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 149,
       description: 'Crunchy golden-fried chicken breast fillet topped with spicy fire sauce, fresh lettuce, and gherkins.',
       isVeg: false,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/burger_b3.png'
     },
     // Momos
     {
@@ -118,7 +118,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Double coated crunchy fried dumplings filled with paneer and herbs, served with fire sauce.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/momos.png'
+      image: '/media/industries/shahi-kitchen/momo_m1.png'
     },
     {
       id: 'm2',
@@ -127,7 +127,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 99,
       description: '8 pieces of soft steamed flour dumplings filled with seasoned grated paneer and spring onions.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/momos.png'
+      image: '/media/industries/shahi-kitchen/momo_m2.png'
     },
     {
       id: 'm3',
@@ -136,7 +136,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 119,
       description: 'Steamed momos tossed in tandoori spices and baked under a blanket of liquid cheese.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/momos.png'
+      image: '/media/industries/shahi-kitchen/momo_m3.png'
     },
     // Sandwiches
     {
@@ -147,7 +147,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Triple layered grilled sandwich filled with marinated paneer tikka bits and coriander mint chutney.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/sandwich_s1.png'
     },
     {
       id: 's2',
@@ -156,7 +156,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 79,
       description: 'Sweet golden corn and melted mozzarella mixture pressed between butter-brushed breads.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/sandwich_s2.png'
     },
     // Chinese
     {
@@ -166,7 +166,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 109,
       description: 'Wok-tossed Hakka noodles with bell peppers, cabbage, onion, and a fiery in-house Schezwan sauce.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/chinese_c1.png'
     },
     {
       id: 'c2',
@@ -175,7 +175,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 119,
       description: 'Crispy deep-fried mixed vegetable balls tossed in soy, ginger, garlic, and green onion sauce.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/chinese_c2.png'
     },
     // French Fries
     {
@@ -185,7 +185,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 79,
       description: 'Crisp golden potato fingers dusted liberally with dry hot African peri-peri seasoning.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/fries_f1.png'
     },
     {
       id: 'f2',
@@ -194,7 +194,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 119,
       description: 'Fries drenched in warm liquid cheese sauce, garnished with pickled jalapenos and spring onion greens.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/fries_f2.png'
     },
     // South Indian
     {
@@ -204,7 +204,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 99,
       description: 'Thin crispy fermented rice crepe smeared with hot butter and loaded with savory potato masala.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/south_si1.png'
     },
     {
       id: 'si2',
@@ -213,7 +213,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 59,
       description: 'Fluffy steamed rice cakes served with hot lentils sambhar and coconut chutney.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/south_si2.png'
     },
     // Indian Meals
     {
@@ -223,7 +223,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 149,
       description: 'Rich Shahi Paneer, creamy Dal Makhani, 2 Butter Roti, Jeera Rice, Salad, and Gulab Jamun.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/meal_im1.png'
     },
     {
       id: 'im2',
@@ -232,7 +232,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 99,
       description: 'Flavorful spiced chickpeas cooked Punjabi style, served with two hot and puffy bhature.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/hero.png'
+      image: '/media/industries/shahi-kitchen/meal_im2.png'
     },
     // Kunafa Delights
     {
@@ -243,7 +243,7 @@ export const ShahiKitchen: React.FC = () => {
       description: 'Classic vermicelli dessert with a hot cheese core, baked crispy and drizzled with orange blossom syrup.',
       isVeg: true,
       isBestseller: true,
-      image: '/media/industries/shahi-kitchen/kunafa.png'
+      image: '/media/industries/shahi-kitchen/kunafa_kd1.png'
     },
     {
       id: 'kd2',
@@ -252,7 +252,7 @@ export const ShahiKitchen: React.FC = () => {
       price: 279,
       description: 'Our crispy golden cheese kunafa layered and topped with molten Nutella chocolate sauce.',
       isVeg: true,
-      image: '/media/industries/shahi-kitchen/kunafa.png'
+      image: '/media/industries/shahi-kitchen/kunafa_kd2.png'
     }
   ];
 

@@ -71,7 +71,7 @@ export const ContactForm: React.FC = () => {
 - Check-in: ${bookingDetails.checkIn}
 - Nights: ${bookingDetails.nights}
 - Guests: ${bookingDetails.guests}
-${bookingDetails.extras.length > 0 ? `- Add-ons: ${bookingDetails.extras.join(', ')}\n` : ''}- Estimated Total: $${bookingDetails.estimatedTotal} (direct reservation).
+${bookingDetails.extras.length > 0 ? `- Add-ons: ${bookingDetails.extras.join(', ')}\n` : ''}- Estimated Total: ₹${bookingDetails.estimatedTotal.toLocaleString('en-IN')} (direct reservation).
 
 I am interested in setting up a similar custom, high-end direct booking simulation website for my hotel properties. Please contact me to discuss.`;
       } else if (stylingDetails) {
@@ -80,7 +80,7 @@ I am interested in setting up a similar custom, high-end direct booking simulati
 - Format: ${stylingDetails.format}
 - Sessions: ${stylingDetails.sessions}
 - Stylist: ${stylingDetails.stylist}
-${stylingDetails.extras.length > 0 ? `- Add-ons: ${stylingDetails.extras.join(', ')}\n` : ''}- Estimated Total: $${stylingDetails.estimatedTotal} (direct reservation).
+${stylingDetails.extras.length > 0 ? `- Add-ons: ${stylingDetails.extras.join(', ')}\n` : ''}- Estimated Total: ₹${stylingDetails.estimatedTotal.toLocaleString('en-IN')} (direct reservation).
 
 I am interested in setting up a similar interactive styling consultation booking and luxury lookbook showroom website for my boutique/brand. Please contact me to discuss.`;
       } else if (contextType === 'sector' || contextType === 'industry' || contextType === 'showcase') {
