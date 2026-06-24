@@ -72,35 +72,37 @@ export const SectorDetail: React.FC = () => {
 
         {/* Sector Cinematic Hero Banner */}
         {(() => {
-          const [bgClass, , borderClass] = sector.tintClass.split(' ');
+          const [bgClass, textClass, borderClass] = sector.tintClass.split(' ');
+          const isDark = bgClass.includes('#0A0A0A') || bgClass.includes('black');
+          
           return (
             <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch overflow-hidden rounded-3xl border p-6 md:p-8 mb-16 ${bgClass} ${borderClass}`}>
               {/* Left text panel */}
               <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="flex flex-wrap gap-2 items-center">
-                    <span className="font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-[#C48A4A] bg-brand-white px-3 py-1 rounded-full shadow-sm border border-brand-beige">
+                    <span className={`font-sans text-[9px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-full shadow-sm border ${isDark ? 'text-[#D4FF00] bg-white/10 border-[#D4FF00]/30' : 'text-[#C48A4A] bg-brand-white border-brand-beige'}`}>
                       {sector.mood}
                     </span>
-                    <span className="font-sans text-[9px] font-bold uppercase tracking-[0.2em] text-brand-charcoal/50">
+                    <span className={`font-sans text-[9px] font-bold uppercase tracking-[0.2em] ${isDark ? 'text-white/50' : 'text-brand-charcoal/50'}`}>
                       {sector.name} Blueprint Series
                     </span>
                   </div>
                   
-                  <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl text-brand-charcoal tracking-tight leading-tight pt-2">
+                  <h1 className={`font-serif text-3xl sm:text-4xl md:text-5xl tracking-tight leading-tight pt-2 ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
                     {sector.name} Solutions
                   </h1>
                   
-                  <p className="font-sans text-xs sm:text-sm text-brand-charcoal/70 leading-relaxed max-w-2xl pt-2">
+                  <p className={`font-sans text-xs sm:text-sm leading-relaxed max-w-2xl pt-2 ${isDark ? 'text-white/70' : 'text-brand-charcoal/70'}`}>
                     {sector.description}
                   </p>
                 </div>
 
-                <div className="pt-4 flex items-center justify-between border-t border-brand-charcoal/5">
-                  <div className="font-sans text-[11px] text-brand-charcoal/55">
-                    Platform Architecture: <strong className="text-brand-charcoal font-semibold">Sector → Showcase</strong>
+                <div className={`pt-4 flex items-center justify-between border-t ${isDark ? 'border-white/10' : 'border-brand-charcoal/5'}`}>
+                  <div className={`font-sans text-[11px] ${isDark ? 'text-white/60' : 'text-brand-charcoal/55'}`}>
+                    Platform Architecture: <strong className={`font-semibold ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>Sector → Showcase</strong>
                   </div>
-                  <div className="bg-brand-white px-3 py-1.5 rounded-full border border-brand-beige text-[10px] font-bold uppercase tracking-wider text-[#3E5A46] shadow-sm">
+                  <div className={`px-3 py-1.5 rounded-full border text-[10px] font-bold uppercase tracking-wider shadow-sm ${isDark ? 'bg-[#D4FF00]/20 text-[#D4FF00] border-[#D4FF00]/30' : 'bg-brand-white text-[#3E5A46] border-brand-beige'}`}>
                     Active Showcases: {sector.activeCount}
                   </div>
                 </div>
@@ -124,6 +126,8 @@ export const SectorDetail: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
             {sector.showcases.map((showcase) => {
               const [bgClass, , borderClass] = sector.tintClass.split(' ');
+              const isDark = bgClass.includes('#0A0A0A') || bgClass.includes('black');
+              
               return (
                 <Card
                   key={showcase.id}
@@ -147,7 +151,7 @@ export const SectorDetail: React.FC = () => {
                       {/* Maturity Badge Overlay */}
                       {showcase.badgeText && (
                         <div className="absolute top-4 left-4 z-20">
-                          <span className="font-sans text-[9px] font-bold uppercase tracking-wider text-brand-white bg-brand-forest/90 px-3 py-1 rounded shadow-md">
+                          <span className={`font-sans text-[9px] font-bold uppercase tracking-wider px-3 py-1 rounded shadow-md ${isDark ? 'bg-[#D4FF00] text-[#0A0A0A]' : 'text-brand-white bg-brand-forest/90'}`}>
                             {showcase.badgeText}
                           </span>
                         </div>
@@ -155,22 +159,22 @@ export const SectorDetail: React.FC = () => {
                     </div>
 
                     {/* Content Area - 30% weight */}
-                    <div className="p-6 md:p-8 flex flex-col flex-grow justify-between space-y-6">
+                    <div className={`p-6 md:p-8 flex flex-col flex-grow justify-between space-y-6 ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
                       {/* Subtitle & Title & Short Desc */}
                       <div className="space-y-4 text-center">
                         <span className="block font-sans text-[9px] font-bold uppercase tracking-[0.25em] text-[#C48A4A]">
                           ✦ ACTIVE BLUEPRINT ✦
                         </span>
-                        <h3 className="font-serif text-2xl md:text-3xl text-brand-charcoal leading-tight">
+                        <h3 className={`font-serif text-2xl md:text-3xl leading-tight ${isDark ? 'text-white' : 'text-brand-charcoal'}`}>
                           {showcase.name}
                         </h3>
-                        <p className="font-sans text-xs text-brand-charcoal/65 leading-relaxed max-w-xl mx-auto line-clamp-2">
+                        <p className={`font-sans text-xs leading-relaxed max-w-xl mx-auto line-clamp-2 ${isDark ? 'text-white/70' : 'text-brand-charcoal/65'}`}>
                           {showcase.shortDesc}
                         </p>
                       </div>
 
                       {/* Divider */}
-                      <div className="border-t border-brand-charcoal/5" />
+                      <div className={`border-t ${isDark ? 'border-white/10' : 'border-brand-charcoal/5'}`} />
 
                       {/* Features list (3 Circular Icon Feature Badges Row) */}
                       <div className="grid grid-cols-3 gap-3 md:gap-4 items-center justify-center py-2">
@@ -178,15 +182,15 @@ export const SectorDetail: React.FC = () => {
                           const FeatIcon = showcaseIconMap[feat.iconName] || Sparkles;
                           return (
                             <div key={i} className="flex flex-col sm:flex-row items-center sm:items-start space-y-1 sm:space-y-0 sm:space-x-2.5 justify-center">
-                              <div className="w-8 h-8 rounded-full border border-brand-beige bg-brand-white flex items-center justify-center text-brand-forest shrink-0 shadow-sm">
+                              <div className={`w-8 h-8 rounded-full border flex items-center justify-center shrink-0 shadow-sm ${isDark ? 'bg-white/10 border-white/20 text-[#D4FF00]' : 'border-brand-beige bg-brand-white text-brand-forest'}`}>
                                 <FeatIcon size={14} strokeWidth={1.5} />
                               </div>
                               <div className="text-center sm:text-left">
-                                <span className="font-sans text-[10px] font-semibold text-brand-charcoal/85 leading-tight block">
+                                <span className={`font-sans text-[10px] font-semibold leading-tight block ${isDark ? 'text-white' : 'text-brand-charcoal/85'}`}>
                                   {feat.title.split(' ').slice(0, 2).join(' ')}
                                 </span>
                                 {feat.title.split(' ').length > 2 && (
-                                  <span className="font-sans text-[8px] text-brand-charcoal/50 leading-tight block">
+                                  <span className={`font-sans text-[8px] leading-tight block ${isDark ? 'text-white/50' : 'text-brand-charcoal/50'}`}>
                                     {feat.title.split(' ').slice(2).join(' ')}
                                   </span>
                                 )}
@@ -197,14 +201,14 @@ export const SectorDetail: React.FC = () => {
                       </div>
 
                       {/* Solutions list (key capabilities details) */}
-                      <div className="border-t border-brand-charcoal/5 pt-4 space-y-2.5">
-                        <span className="block text-[8px] font-bold uppercase tracking-wider text-brand-charcoal/45 text-center sm:text-left">
+                      <div className={`border-t pt-4 space-y-2.5 ${isDark ? 'border-white/10' : 'border-brand-charcoal/5'}`}>
+                        <span className={`block text-[8px] font-bold uppercase tracking-wider text-center sm:text-left ${isDark ? 'text-white/40' : 'text-brand-charcoal/45'}`}>
                           Key Solutions Showcased:
                         </span>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5">
                           {showcase.solutionsShowcased.slice(0, 4).map((sol, index) => (
-                            <li key={index} className="flex items-start text-[11px] text-brand-charcoal/75 leading-tight">
-                              <span className="text-brand-forest mr-1.5 shrink-0">✓</span>
+                            <li key={index} className={`flex items-start text-[11px] leading-tight ${isDark ? 'text-white/75' : 'text-brand-charcoal/75'}`}>
+                              <span className={`${isDark ? 'text-[#D4FF00]' : 'text-brand-forest'} mr-1.5 shrink-0`}>✓</span>
                               <span>{sol}</span>
                             </li>
                           ))}
@@ -212,7 +216,7 @@ export const SectorDetail: React.FC = () => {
                       </div>
 
                       {/* Footer Action buttons */}
-                      <div className="border-t border-brand-charcoal/5 pt-6 flex flex-col sm:flex-row gap-3">
+                      <div className={`border-t pt-6 flex flex-col sm:flex-row gap-3 ${isDark ? 'border-white/10' : 'border-brand-charcoal/5'}`}>
                         <Button 
                           onClick={(e) => {
                             e.stopPropagation();
@@ -230,7 +234,7 @@ export const SectorDetail: React.FC = () => {
                             navigate('/contact', { state: { contextType: 'showcase', contextName: showcase.name } });
                           }}
                           variant="outline"
-                          className="flex-grow py-3 border-brand-forest text-brand-forest hover:bg-brand-forest/5 text-xs uppercase font-bold tracking-wider rounded-full"
+                          className={`flex-grow py-3 border-brand-forest text-xs uppercase font-bold tracking-wider rounded-full ${isDark ? 'text-[#D4FF00] border-[#D4FF00] hover:bg-[#D4FF00]/10' : 'text-brand-forest hover:bg-brand-forest/5'}`}
                         >
                           <span>Request Custom Build</span>
                         </Button>
