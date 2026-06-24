@@ -301,7 +301,7 @@ export const RajputanaHome: React.FC = () => {
           <img 
             src="/media/industries/rajputana/hero.png" 
             alt="Rajput Queen Bridal Palace Hero Campaign" 
-            className="absolute inset-0 w-full h-full object-cover object-top"
+            className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10" />
 
