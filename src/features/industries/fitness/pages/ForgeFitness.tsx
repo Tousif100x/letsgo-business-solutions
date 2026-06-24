@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   Dumbbell, Zap, Users, Trophy, Star, ChevronRight, ChevronLeft,
   Clock, MapPin, Phone, Mail, MessageCircle, Play, Check,
-  Flame, Target, TrendingUp, Shield, X, Instagram, Facebook,
-  Youtube, ArrowDown, Award, BarChart2, Activity
+  Flame, Target, TrendingUp, Shield, X, ArrowDown, Award, BarChart2, Activity
 } from 'lucide-react';
 
 // ─── TYPES ──────────────────────────────────────────────────────────────────
@@ -1409,9 +1408,9 @@ export const ForgeFitness: React.FC = () => {
               </p>
               {/* Social */}
               <div className="flex items-center space-x-4">
-                {[Instagram, Facebook, Youtube].map((Icon, i) => (
-                  <div key={i} className="w-10 h-10 bg-[#111] rounded-full flex items-center justify-center text-[#888] hover:bg-[#D4FF00] hover:text-[#0A0A0A] cursor-pointer transition-all shadow-lg">
-                    <Icon size={16} />
+                {['IG', 'FB', 'YT'].map((label, i) => (
+                  <div key={i} className="w-10 h-10 bg-[#111] rounded-full flex items-center justify-center text-[#888] font-bold text-xs hover:bg-[#D4FF00] hover:text-[#0A0A0A] cursor-pointer transition-all shadow-lg">
+                    {label}
                   </div>
                 ))}
               </div>
