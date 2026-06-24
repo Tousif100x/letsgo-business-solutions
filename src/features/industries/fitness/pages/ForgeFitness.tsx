@@ -560,8 +560,12 @@ export const ForgeFitness: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=90"
                 alt="Elite Bodybuilder at Forge Fitness Club"
-                className="w-full h-full object-contain object-right-bottom drop-shadow-2xl"
-                style={{ filter: 'contrast(1.1) brightness(0.95)' }}
+                className="w-full h-full object-cover object-center drop-shadow-2xl mix-blend-lighten"
+                style={{ 
+                  filter: 'contrast(1.2) brightness(0.9)',
+                  maskImage: 'linear-gradient(to right, transparent 0%, black 20%)',
+                  WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 20%)'
+                }}
               />
             </div>
 

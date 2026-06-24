@@ -25,7 +25,7 @@ const JEWELLERY_COLLECTIONS: CollectionItem[] = [
     name: 'Jadau Collection',
     category: 'jewellery',
     tagline: 'Royal heirloom craftsmanship',
-    image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80',
+    image: '/media/industries/rajputana/jadau.png',
     highlights: ['Bridal Sets', 'Wedding Jewellery', 'Handcrafted Pieces']
   },
   {
@@ -33,7 +33,7 @@ const JEWELLERY_COLLECTIONS: CollectionItem[] = [
     name: 'Meenakari Collection',
     category: 'jewellery',
     tagline: 'Vibrant traditions in every detail',
-    image: 'https://images.unsplash.com/photo-1601121141461-9d6647bef0a1?auto=format&fit=crop&w=800&q=80',
+    image: '/media/industries/rajputana/meenakari.png',
     highlights: ['Enamel Jewellery', 'Vibrant Handwork', 'Heritage Designs']
   }
 ];
@@ -60,7 +60,7 @@ const SAREE_COLLECTIONS: CollectionItem[] = [
     name: 'Rajputi Collection',
     category: 'saree',
     tagline: 'Royal bridal elegance',
-    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80',
+    image: '/media/industries/rajputana/rajputi.png',
     highlights: ['Bridal Gota Patti', 'Zardozi Embroidery', 'Pure Satin-Silk']
   },
   {
@@ -76,7 +76,7 @@ const SAREE_COLLECTIONS: CollectionItem[] = [
     name: 'Shaira Collection',
     category: 'saree',
     tagline: 'Graceful. Sophisticated. Unique.',
-    image: 'https://images.unsplash.com/photo-1631201897867-9aed0b2a8aac?auto=format&fit=crop&w=800&q=80',
+    image: '/media/industries/rajputana/shaira.png',
     highlights: ['Banarasi Katan Silk', 'Pure Silver Zari', 'Generational Heirlooms']
   }
 ];
@@ -301,7 +301,7 @@ export const RajputanaHome: React.FC = () => {
           <img 
             src="/media/industries/rajputana/hero.png" 
             alt="Rajput Queen Bridal Palace Hero Campaign" 
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            className="absolute inset-0 w-full h-full object-cover object-top"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent z-10" />
 
