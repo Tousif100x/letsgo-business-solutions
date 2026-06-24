@@ -181,13 +181,40 @@ export const sectors: SectorConfig[] = [
     slug: 'fitness-recreation',
     description: 'Gyms, sports clubs, play zones and wellness centers promoting health, energy and active lifestyles.',
     icon: 'Dumbbell',
-    activeCount: 0,
-    status: 'coming-soon',
+    activeCount: 1,
+    status: 'active',
     image: '/media/sectors/fitness.png',
-    tintClass: 'bg-[#EAF2EC] text-[#2B3F31] border-[#C8DFCD]',
-    accentTint: '#EAF2EC',
+    tintClass: 'bg-[#0A0A0A] text-[#D4FF00] border-[#D4FF00]/30',
+    accentTint: '#0A0A0A',
     mood: 'Energy & Performance',
-    showcases: []
+    showcases: [
+      {
+        id: 'forge-fitness',
+        name: 'FORGE FITNESS CLUB',
+        slug: 'forge-fitness',
+        tagline: 'Premium Gym Showcase & High-Converting Fitness Website',
+        shortDesc: 'A powerful, premium gym website demonstration featuring program showcases, trainer spotlights, transformation stories, supplement shop, and membership conversion flows.',
+        status: 'active',
+        path: '/sectors/fitness-recreation/forge-fitness',
+        image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80',
+        businessPains: [
+          'Generic gym websites failing to convey premium branding and justify higher membership prices.',
+          'Low online conversion — visitors browse but never book trials or inquire about memberships.',
+          'No digital showcase for trainers, programs, or transformation results that builds trust fast.'
+        ],
+        solutionsShowcased: [
+          'Cinematic 100vh hero with animated stats and floating fitness cards.',
+          'WhatsApp-integrated program, membership, and supplement enquiry flows.',
+          'Trainer spotlight cards, before/after transformation stories, and review carousel.'
+        ],
+        features: [
+          { title: 'Program Showcases', iconName: 'Dumbbell' },
+          { title: 'WhatsApp Conversion', iconName: 'MessageCircle' },
+          { title: 'Trainer Profiles', iconName: 'Users' }
+        ],
+        badgeText: 'Live Showcase'
+      }
+    ]
   },
   {
     id: 'healthcare',
