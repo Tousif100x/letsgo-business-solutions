@@ -129,11 +129,9 @@ export const SectorDetail: React.FC = () => {
               const isDark = bgClass.includes('#0A0A0A') || bgClass.includes('black');
               
               return (
-                <Card
+                <div
                   key={showcase.id}
-                  hoverEffect={true}
-                  padding="none"
-                  className={`overflow-hidden border transition-all duration-500 cursor-pointer group flex flex-col justify-between h-full rounded-2xl ${bgClass} ${borderClass}`}
+                  className={`overflow-hidden border transition-all duration-500 cursor-pointer group flex flex-col justify-between h-full rounded-2xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:-translate-y-1 hover:border-brand-gold/35 ${bgClass} ${borderClass}`}
                   onClick={() => navigate(showcase.path)}
                 >
                   <div className="flex flex-col h-full justify-between">
@@ -241,7 +239,7 @@ export const SectorDetail: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </Card>
+                </div>
               );
             })}
           </div>
