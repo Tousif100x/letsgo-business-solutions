@@ -34,7 +34,7 @@ const BRIDAL_LOOKS: FeaturedLook[] = [
     price: 125000,
     fabrics: 'Pure Raw Silk in Antique Ivory',
     craft: '400 Hours of Zardozi & Muted Dabka Wirework',
-    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80',
+    image: '/images/boutique/noor-mahal.png',
     description: 'A classic heritage silhouette embroidered with geometric borders inspired by Mughal stone carvings.'
   },
   {
@@ -43,7 +43,7 @@ const BRIDAL_LOOKS: FeaturedLook[] = [
     price: 98000,
     fabrics: 'Handloomed Banarasi Silk',
     craft: 'Fine Tilla embroidery and antique gold thread details',
-    image: 'https://images.unsplash.com/photo-1583391733956-62e1e97f7e28?auto=format&fit=crop&w=600&q=80',
+    image: '/images/boutique/sherwani.png',
     description: 'An unstructured classic drape for celebrations, blending heritage borders with comfortable contours.'
   }
 ];
@@ -586,7 +586,7 @@ export const BoutiqueHome: React.FC = () => {
               <div className="lg:col-span-5 relative w-full aspect-[3/4] bg-[#F1E9DC] rounded-[40px] overflow-hidden border border-[#B08D57]/20 shadow-md">
                 <img 
                   src={
-                    activeWing === 'bridal' ? 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80' :
+                    activeWing === 'bridal' ? '/images/boutique/bridal-room.png' :
                     activeWing === 'festive' ? 'https://images.unsplash.com/photo-1583391733956-62e1e97f7e28?auto=format&fit=crop&w=600&q=80' :
                     activeWing === 'designer' ? 'https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80' :
                     'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80'
