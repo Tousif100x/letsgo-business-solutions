@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Dumbbell, Zap, Users, Trophy, Star, ChevronRight, ChevronLeft,
-  Clock, MapPin, Phone, Mail, MessageCircle, Play, Check,
+  Dumbbell, Zap, Star, ChevronRight, ChevronLeft,
+  Clock, MapPin, Phone, MessageCircle, Play, Check,
   Flame, Target, TrendingUp, Shield, X, ArrowDown, Award, BarChart2, Activity
 } from 'lucide-react';
 
@@ -964,7 +964,7 @@ export const ForgeFitness: React.FC = () => {
                 features: ['✓ Gym Access (All Hours)', '✓ Locker Access', '✓ Personalized Diet', '✓ Trainer Support', '✕ Body Analysis', '✕ Supplement Discounts'],
                 featured: false, btn: 'Start Quarterly'
               }
-            ].map((plan, i) => (
+            ].map((plan) => (
               <div
                 key={plan.name}
                 className={`relative rounded-3xl p-8 flex flex-col transition-all duration-300 ${

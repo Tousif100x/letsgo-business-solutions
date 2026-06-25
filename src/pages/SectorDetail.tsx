@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { sectors } from '../config/sectors';
 import { MainLayout } from '../components/layout/MainLayout';
-import { Card } from '../components/common/Card';
 import { Button } from '../components/common/Button';
 import { CTASection } from '../components/shared/CTASection';
 import {
@@ -72,7 +71,7 @@ export const SectorDetail: React.FC = () => {
 
         {/* Sector Cinematic Hero Banner */}
         {(() => {
-          const [bgClass, textClass, borderClass] = sector.tintClass.split(' ');
+          const [bgClass, , borderClass] = sector.tintClass.split(' ');
           const isDark = bgClass.includes('#0A0A0A') || bgClass.includes('black');
           
           return (
