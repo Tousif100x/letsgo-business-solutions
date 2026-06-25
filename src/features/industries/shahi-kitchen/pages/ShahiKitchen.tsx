@@ -18,6 +18,7 @@ import {
   ArrowLeft,
   Info
 } from 'lucide-react';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 
 interface MenuItem {
   id: string;
@@ -469,9 +470,16 @@ _Generated via ShahiKitchen.com_`;
   };
 
   return (
-    <div className="min-h-screen bg-[#1F0D07] text-[#FAF5EB] font-sans antialiased selection:bg-[#FAF5EB]/15 selection:text-[#FAF5EB] overflow-x-hidden">
+    <div className="min-h-screen bg-[#111111] text-brand-white font-outfit selection:bg-brand-orange selection:text-white">
+      <ShowcaseNavigation 
+        sectorName="Hospitality"
+        sectorSlug="hospitality"
+        showcaseName="Shahi Kitchen"
+        accentColor="#F97316" // brand-orange
+        theme="dark"
+      />
       
-      {/* Dynamic Font Style Definitions */}
+      {/* 1. APP-LIKE FIXED BOTTOM NAVIGATION (MOBILE ONLY) */}
       <style>{`
         .font-script {
           font-family: 'Dancing Script', cursive;

@@ -5,6 +5,7 @@ import {
   Clock, MapPin, Phone, MessageCircle, Play, Check,
   Flame, Target, TrendingUp, Shield, X, ArrowDown, Award, BarChart2, Activity
 } from 'lucide-react';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 
 // ─── TYPES ──────────────────────────────────────────────────────────────────
 interface ExperienceZone {
@@ -367,6 +368,13 @@ export const ForgeFitness: React.FC = () => {
 
   return (
     <div className="bg-[#0A0A0A] text-white font-sans min-h-screen overflow-x-hidden">
+      <ShowcaseNavigation 
+        sectorName="Fitness & Recreation"
+        sectorSlug="fitness-recreation"
+        showcaseName="FORGE FITNESS CLUB"
+        accentColor="#D4FF00"
+        theme="dark"
+      />
 
       {/* ── FONTS & STYLES ── */}
       <style>{`

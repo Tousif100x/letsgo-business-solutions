@@ -16,6 +16,7 @@ import {
   Shield,
   ChevronDown
 } from 'lucide-react';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 
 interface SubjectItem {
   id: string;
@@ -608,6 +609,13 @@ export const FuturePath: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#111827] font-sans antialiased overflow-x-hidden relative selection:bg-teal-200 selection:text-teal-900 pb-1">
+      <ShowcaseNavigation 
+        sectorName="Education"
+        sectorSlug="education"
+        showcaseName="FuturePath Learning Hub"
+        accentColor="#14B8A6" // teal-500
+        theme="light"
+      />
       {/* Dynamic font stylesheet configuration */}
       <style dangerouslySetInnerHTML={{ __html: `
         .font-fredoka { font-family: 'Fredoka', sans-serif; }

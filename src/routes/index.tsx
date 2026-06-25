@@ -19,6 +19,7 @@ const RajputanaJewellery = React.lazy(() => import('../features/industries/rajpu
 const RajputanaSarees = React.lazy(() => import('../features/industries/rajputana/pages/RajputanaSarees'));
 const FuturePath = React.lazy(() => import('../features/industries/education/pages/FuturePath'));
 const ForgeFitness = React.lazy(() => import('../features/industries/fitness/pages/ForgeFitness'));
+const EnovaLabs = React.lazy(() => import('../features/industries/healthcare/pages/EnovaLabs'));
 const ProjectDetail = React.lazy(() => import('../features/projects/pages/ProjectDetail'));
 const AutomationDetail = React.lazy(() => import('../features/automation/pages/AutomationDetail'));
 
@@ -63,6 +64,7 @@ export const AppRoutes: React.FC = () => {
         <Route path="/sectors/fashion-lifestyle/rajputana-heritage" element={<RajputanaHome />} />
         <Route path="/sectors/education/future-path" element={<FuturePath />} />
         <Route path="/sectors/fitness-recreation/forge-fitness" element={<ForgeFitness />} />
+        <Route path="/sectors/healthcare/enova-labs" element={<EnovaLabs />} />
         <Route path="/rajputana/jewellery" element={<RajputanaJewellery />} />
         <Route path="/rajputana/sarees" element={<RajputanaSarees />} />
         <Route path="/projects" element={<Projects />} />

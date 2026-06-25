@@ -14,6 +14,7 @@ import {
   ChevronRight,
   Info
 } from 'lucide-react';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 
 type WingType = 'courtyard' | 'bridal' | 'festive' | 'designer' | 'tailoring';
 
@@ -153,6 +154,13 @@ export const BoutiqueHome: React.FC = () => {
       </svg>
 
       <div className="min-h-screen bg-[#FBF7F0] text-[#2B2B2B] font-sans -mt-24 md:-mt-28 pt-24 md:pt-28 selection:bg-[#3E5A46]/10 selection:text-[#3E5A46]">
+        <ShowcaseNavigation 
+          sectorName="Fashion & Lifestyle"
+          sectorSlug="fashion-lifestyle"
+          showcaseName="Aura Atelier"
+          accentColor="#3E5A46"
+          theme="light"
+        />
         
         {/* AURA ATELIER CUSTOM HEADER */}
         <header className="border-b border-[#B08D57]/20 py-6 px-6 bg-[#FBF7F0] sticky top-[73px] z-30">

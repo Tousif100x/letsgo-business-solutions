@@ -222,12 +222,39 @@ export const sectors: SectorConfig[] = [
     slug: 'healthcare',
     description: 'Clinics, hospitals, diagnostic centers and wellness services delivering trusted care and better lives.',
     icon: 'Activity',
-    activeCount: 0,
-    status: 'coming-soon',
+    activeCount: 1,
+    status: 'active',
     image: '/media/sectors/healthcare.png',
     tintClass: 'bg-[#E9ECF9] text-[#2A3E5C] border-[#CCD4F0]',
     accentTint: '#E9ECF9',
     mood: 'Trust & Care',
-    showcases: []
+    showcases: [
+      {
+        id: 'enova-labs',
+        name: 'Enova Labs',
+        slug: 'enova-labs',
+        tagline: 'Accurate • Reliable • Trusted',
+        shortDesc: 'A premium diagnostic and pathology laboratory showcase featuring online test booking, home sample collection, and digital reports.',
+        status: 'active',
+        path: '/sectors/healthcare/enova-labs',
+        image: '/images/enova-labs/hero.png',
+        businessPains: [
+          'Patients must physically visit for enquiries',
+          'No online booking or home collection requests',
+          'Manual report distribution and difficult package discovery'
+        ],
+        solutionsShowcased: [
+          'Online booking & home sample scheduling',
+          'Digital reports & Patient Dashboard mockup',
+          'Searchable test catalogue and health packages'
+        ],
+        features: [
+          { title: 'Home Collection', iconName: 'Activity' },
+          { title: 'Digital Reports', iconName: 'FileText' },
+          { title: 'WhatsApp Booking', iconName: 'MessageCircle' }
+        ],
+        badgeText: 'New Showcase'
+      }
+    ]
   }
 ];

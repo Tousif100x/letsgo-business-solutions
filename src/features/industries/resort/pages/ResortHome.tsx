@@ -4,6 +4,7 @@ import { MainLayout } from '../../../../components/layout/MainLayout';
 import { Button } from '../../../../components/common/Button';
 import { Card } from '../../../../components/common/Card';
 import { BookingModal } from '../components/BookingModal';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 import {
   Users,
   Star,
@@ -33,6 +34,13 @@ export const ResortHome: React.FC = () => {
 
   return (
     <MainLayout>
+      <ShowcaseNavigation 
+        sectorName="Hospitality"
+        sectorSlug="hospitality"
+        showcaseName="Grand Horizon Resort"
+        accentColor="#C8A15A"
+        theme="dark"
+      />
       {/* 1. Hero Section */}
       <section className="relative h-[90vh] md:h-screen w-full overflow-hidden -mt-24 md:-mt-28">
         {/* Background Image with Dark Gradient Overlay */}

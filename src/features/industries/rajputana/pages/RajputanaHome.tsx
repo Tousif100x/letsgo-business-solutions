@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MainLayout } from '../../../../components/layout/MainLayout';
 import { Button } from '../../../../components/common/Button';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 import { TrousseauModal } from '../components/TrousseauModal';
 import {
   Compass,
@@ -241,6 +242,13 @@ export const RajputanaHome: React.FC = () => {
         }}
         className="min-h-screen text-[#222222] font-sans -mt-24 md:-mt-28 pt-24 md:pt-28 selection:bg-[#7C1F2D]/10 selection:text-[#7C1F2D]"
       >
+        <ShowcaseNavigation 
+          sectorName="Fashion & Lifestyle"
+          sectorSlug="fashion-lifestyle"
+          showcaseName="Rajputana Heritage"
+          accentColor="#7C1F2D"
+          theme="light"
+        />
         
         {/* HEADER NAVIGATION (SIMPLIFIED) */}
         <header className="border-b border-[#C8A15A]/25 py-5 px-6 bg-[#FAF6EE]">
