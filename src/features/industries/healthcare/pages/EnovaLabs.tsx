@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 import { BookingModal } from '../components/BookingModal';
 import { Button } from '../../../../components/common/Button';
 import { 
@@ -74,14 +73,7 @@ export default function EnovaLabs() {
 
   return (
     <div className="bg-[#F8FBFD] text-[#475569] font-sans antialiased overflow-x-hidden selection:bg-[#38BDF8]/20 selection:text-[#0F4C81]">
-      <ShowcaseNavigation 
-        sectorName="Healthcare"
-        sectorSlug="healthcare"
-        showcaseName="Enova Labs"
-        accentColor="#0F4C81"
-        theme="light"
-      />
-
+      
       <style>{`
         @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
         @keyframes pulse-glow { 0%,100%{box-shadow:0 0 0 0 rgba(6,182,212,0.4)} 70%{box-shadow:0 0 0 15px rgba(6,182,212,0)} }
@@ -108,7 +100,7 @@ export default function EnovaLabs() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-20 md:pt-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Content */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
@@ -577,3 +569,5 @@ export default function EnovaLabs() {
     </div>
   );
 }
+
+

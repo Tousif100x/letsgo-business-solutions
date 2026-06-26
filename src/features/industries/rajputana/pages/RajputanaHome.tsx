@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { MainLayout } from '../../../../components/layout/MainLayout';
 import { Button } from '../../../../components/common/Button';
-import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 import { TrousseauModal } from '../components/TrousseauModal';
 import {
   Compass,
@@ -240,16 +239,9 @@ export const RajputanaHome: React.FC = () => {
           backgroundColor: '#FAF6EE',
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='80' viewBox='0 0 60 80'%3E%3Cpath d='M 5,80 L 5,35 C 5,18 15,12 30,5 C 45,12 55,18 55,35 L 55,80' fill='none' stroke='%23C8A15A' stroke-width='0.5' opacity='0.04'/%3E%3C/svg%3E")`
         }}
-        className="min-h-screen text-[#222222] font-sans selection:bg-[#7C1F2D]/10 selection:text-[#7C1F2D]"
+        className="min-h-screen text-[#222222] font-sans -mt-24 md:-mt-28 pt-24 md:pt-28 selection:bg-[#7C1F2D]/10 selection:text-[#7C1F2D]"
       >
-        <ShowcaseNavigation 
-          sectorName="Fashion & Lifestyle"
-          sectorSlug="fashion-lifestyle"
-          showcaseName="Rajputana Heritage"
-          accentColor="#7C1F2D"
-          theme="light"
-        />
-        
+                
         {/* HEADER NAVIGATION (SIMPLIFIED) */}
         <header className="border-b border-[#C8A15A]/25 py-5 px-6 bg-[#FAF6EE]">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -540,3 +532,5 @@ export const RajputanaHome: React.FC = () => {
 };
 
 export default RajputanaHome;
+
+

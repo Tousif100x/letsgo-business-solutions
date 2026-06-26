@@ -5,7 +5,6 @@ import {
   Clock, MapPin, Phone, MessageCircle, Play, Check,
   Flame, Target, TrendingUp, Shield, X, ArrowDown, Award, BarChart2, Activity
 } from 'lucide-react';
-import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 
 // ─── TYPES ──────────────────────────────────────────────────────────────────
 interface ExperienceZone {
@@ -368,14 +367,7 @@ export const ForgeFitness: React.FC = () => {
 
   return (
     <div className="bg-[#0A0A0A] text-white font-sans min-h-screen overflow-x-hidden">
-      <ShowcaseNavigation 
-        sectorName="Fitness & Recreation"
-        sectorSlug="fitness-recreation"
-        showcaseName="FORGE FITNESS CLUB"
-        accentColor="#D4FF00"
-        theme="dark"
-      />
-
+      
       {/* ── FONTS & STYLES ── */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -407,13 +399,13 @@ export const ForgeFitness: React.FC = () => {
           NAVIGATION
       ───────────────────────────────────────────────── */}
       <nav
-        className={`absolute top-[80px] left-0 right-0 z-40 transition-all duration-300 font-body pointer-events-none ${
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 font-body ${
           scrolled
-            ? 'bg-transparent py-3'
+            ? 'bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#D4FF00]/10 py-3'
             : 'bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between pointer-events-auto">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2.5">
             <div className="w-9 h-9 bg-[#D4FF00] rounded-sm flex items-center justify-center">
@@ -1489,3 +1481,5 @@ export const ForgeFitness: React.FC = () => {
 };
 
 export default ForgeFitness;
+
+

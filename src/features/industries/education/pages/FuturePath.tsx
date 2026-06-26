@@ -16,7 +16,6 @@ import {
   Shield,
   ChevronDown
 } from 'lucide-react';
-import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 
 interface SubjectItem {
   id: string;
@@ -609,14 +608,7 @@ export const FuturePath: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#111827] font-sans antialiased overflow-x-hidden relative selection:bg-teal-200 selection:text-teal-900 pb-1">
-      <ShowcaseNavigation 
-        sectorName="Education"
-        sectorSlug="education"
-        showcaseName="FuturePath Learning Hub"
-        accentColor="#14B8A6" // teal-500
-        theme="light"
-      />
-      {/* Dynamic font stylesheet configuration */}
+            {/* Dynamic font stylesheet configuration */}
       <style dangerouslySetInnerHTML={{ __html: `
         .font-fredoka { font-family: 'Fredoka', sans-serif; }
         .font-outfit { font-family: 'Outfit', sans-serif; }
@@ -672,8 +664,8 @@ export const FuturePath: React.FC = () => {
       </div>
 
       {/* ---------------- NAVIGATION ---------------- */}
-      <nav className="absolute top-[80px] left-0 right-0 z-40 bg-transparent py-4 px-6 md:px-12 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center space-x-3 cursor-pointer pointer-events-auto" onClick={() => navigate('/sectors/education')}>
+      <nav className="relative z-40 bg-white/95 backdrop-blur-md border-b border-teal-50 py-4 px-6 md:px-12 flex items-center justify-between">
+        <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate('/sectors/education')}>
           <div className="w-10 h-10 bg-teal-500 rounded-2xl flex items-center justify-center text-white shadow-md shadow-teal-500/20 transform rotate-3">
             <GraduationCap className="w-6 h-6" />
           </div>
@@ -684,7 +676,7 @@ export const FuturePath: React.FC = () => {
         </div>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-8 font-outfit text-sm font-semibold pointer-events-auto">
+        <div className="hidden md:flex items-center space-x-8 font-outfit text-sm font-semibold">
           <a href="#subjects" className="text-[#111827]/75 hover:text-teal-600 transition-colors">Subjects</a>
           <a href="#careers" className="text-[#111827]/75 hover:text-teal-600 transition-colors">Careers</a>
           <a href="#radial-hub" className="text-[#111827]/75 hover:text-teal-600 transition-colors">Why Us</a>
@@ -693,18 +685,26 @@ export const FuturePath: React.FC = () => {
           <a href="#results" className="text-[#111827]/75 hover:text-teal-600 transition-colors">Achievers</a>
         </div>
 
-        <div className="flex items-center space-x-4 pointer-events-auto">
+        <div className="flex items-center space-x-4">
           <button 
             onClick={() => setShowDemoModal(true)} 
             className="font-outfit text-xs font-bold uppercase tracking-wider px-5 py-2.5 bg-teal-500 text-white rounded-full hover:bg-teal-600 hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-teal-500/20"
           >
             Book Free Demo
           </button>
+          
+          <button 
+            onClick={() => navigate('/sectors')} 
+            className="p-2 border border-teal-100 hover:bg-teal-50 rounded-full transition-colors text-teal-600"
+            title="Back to Catalog"
+          >
+            <X size={18} />
+          </button>
         </div>
       </nav>
 
       {/* ---------------- SECTION 1: HERO ---------------- */}
-      <section className="relative overflow-hidden pt-36 pb-20 md:pb-24 px-6 md:px-12 lg:px-20 z-10">
+      <section className="relative overflow-hidden pt-12 pb-20 md:pb-24 px-6 md:px-12 lg:px-20 z-10">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Text Block */}
@@ -1625,3 +1625,5 @@ export const FuturePath: React.FC = () => {
 };
 
 export default FuturePath;
+
+
