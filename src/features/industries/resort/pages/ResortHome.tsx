@@ -42,13 +42,13 @@ export const ResortHome: React.FC = () => {
         theme="dark"
       />
       {/* 1. Hero Section */}
-      <section className="relative h-[90vh] md:h-screen w-full overflow-hidden -mt-24 md:-mt-28">
+      <section className="relative h-[100vh] w-full overflow-hidden">
         {/* Background Image with Dark Gradient Overlay */}
         <div className="absolute inset-0 bg-brand-charcoal">
           <img
             src="/media/industries/resort/hero.png"
             alt="The Grand Horizon Resort & Spa CLIFFSIDE VIEW"
-            className="w-full h-full object-cover opacity-75"
+            className="w-full h-full object-cover object-[70%_center] md:object-center opacity-75"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal/80 via-brand-charcoal/45 to-transparent" />
         </div>
@@ -185,7 +185,7 @@ export const ResortHome: React.FC = () => {
       </section>
 
       {/* 4. Accommodations Showcase */}
-      <section className="py-20 px-6 md:px-12 bg-brand-white border-b border-brand-beige">
+      <section className="py-20 md:py-32 bg-brand-white text-brand-charcoal px-6 md:px-12" id="welcome">
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
             <div className="space-y-3 max-w-xl">

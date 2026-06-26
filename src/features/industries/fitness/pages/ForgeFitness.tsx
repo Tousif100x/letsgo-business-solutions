@@ -407,13 +407,13 @@ export const ForgeFitness: React.FC = () => {
           NAVIGATION
       ───────────────────────────────────────────────── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 font-body ${
+        className={`absolute top-[80px] left-0 right-0 z-40 transition-all duration-300 font-body pointer-events-none ${
           scrolled
-            ? 'bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#D4FF00]/10 py-3'
+            ? 'bg-transparent py-3'
             : 'bg-transparent py-5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between pointer-events-auto">
           {/* Logo */}
           <div className="flex items-center space-x-2.5">
             <div className="w-9 h-9 bg-[#D4FF00] rounded-sm flex items-center justify-center">
@@ -568,7 +568,7 @@ export const ForgeFitness: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=90"
                 alt="Elite Bodybuilder at Forge Fitness Club"
-                className="w-full h-full object-cover object-center drop-shadow-2xl mix-blend-lighten"
+                className="w-full h-full object-cover object-[75%_center] md:object-[60%_center] lg:object-center drop-shadow-2xl mix-blend-lighten"
                 style={{ 
                   filter: 'contrast(1.2) brightness(0.9)',
                   maskImage: 'linear-gradient(to right, transparent 0%, black 20%)',

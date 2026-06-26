@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import {
   Search,
   ShoppingBag,
@@ -15,7 +15,6 @@ import {
   CheckCircle,
   ChevronRight,
   ArrowRight,
-  ArrowLeft,
   Info
 } from 'lucide-react';
 import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
@@ -37,7 +36,6 @@ interface CartItem {
 }
 
 export const ShahiKitchen: React.FC = () => {
-  const navigate = useNavigate();
   
   // Custom Google Fonts loading
   useEffect(() => {
@@ -500,17 +498,11 @@ _Generated via ShahiKitchen.com_`;
       `}</style>
 
       {/* Main Header / Navigation */}
-      <header className="sticky top-0 z-40 bg-[#1E0D07]/95 border-b border-[#FAF5EB]/10 backdrop-blur-md shadow-xl py-3 px-6 md:px-12">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <header className="absolute top-[80px] left-0 right-0 z-40 bg-transparent py-3 px-6 md:px-12 pointer-events-none">
+        <div className="max-w-7xl mx-auto flex items-center justify-between pointer-events-auto">
           
-          {/* Back Button (Hub Exit) */}
-          <button 
-            onClick={() => navigate('/sectors/hospitality')}
-            className="flex items-center text-xs tracking-wider uppercase font-semibold text-[#FAF5EB]/60 hover:text-[#FAF5EB] transition-colors"
-          >
-            <ArrowLeft size={16} className="mr-1.5" />
-            <span className="hidden sm:inline">Back</span>
-          </button>
+          {/* Back Button Removed - Handled by Global ShowcaseNavigation */}
+          <div className="w-[60px]"></div>
 
           {/* Shahi Kitchen Brand Logo */}
           <div className="flex flex-col items-center justify-center text-center cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>

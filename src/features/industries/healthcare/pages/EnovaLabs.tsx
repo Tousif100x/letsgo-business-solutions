@@ -108,15 +108,15 @@ export default function EnovaLabs() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center pt-20 md:pt-12">
           {/* Left Content */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight leading-[1.1]">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15]">
                 Accurate Reports.<br/>
                 <span className="text-[#38BDF8]">Trusted Results.</span>
               </h1>
-              <p className="text-lg text-white/90 max-w-xl leading-relaxed font-light">
+              <p className="text-base md:text-lg text-white/90 max-w-xl leading-relaxed font-light">
                 Advanced pathology and diagnostic testing with precision technology. 
                 Book tests online, schedule home sample collection, and receive secure digital reports — all from one place.
               </p>
@@ -139,13 +139,13 @@ export default function EnovaLabs() {
 
             <div className="flex items-center gap-8 pt-4">
               <div className="space-y-1">
-                <div className="text-2xl font-bold text-white">NABL</div>
-                <div className="text-[10px] uppercase tracking-wider text-white/70 font-semibold">Standard</div>
+                <div className="text-xl md:text-2xl font-bold text-white">NABL</div>
+                <div className="text-[9px] md:text-[10px] uppercase tracking-wider text-white/70 font-semibold">Standard</div>
               </div>
-              <div className="w-px h-10 bg-white/20" />
+              <div className="w-px h-8 md:h-10 bg-white/20" />
               <div className="space-y-1">
-                <div className="text-2xl font-bold text-white">25k+</div>
-                <div className="text-[10px] uppercase tracking-wider text-white/70 font-semibold">Reports Delivered</div>
+                <div className="text-xl md:text-2xl font-bold text-white">25k+</div>
+                <div className="text-[9px] md:text-[10px] uppercase tracking-wider text-white/70 font-semibold">Reports Delivered</div>
               </div>
               <div className="w-px h-10 bg-white/20" />
               <div className="space-y-1">

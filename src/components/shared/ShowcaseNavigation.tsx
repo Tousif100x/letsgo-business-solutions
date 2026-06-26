@@ -28,11 +28,13 @@ export const ShowcaseNavigation: React.FC<ShowcaseNavigationProps> = ({
   const borderClass = isDark ? 'border-white/10' : 'border-black/5';
 
   return (
-    <div className="absolute top-0 left-0 right-0 z-50 px-4 py-6 md:px-8 max-w-7xl mx-auto w-full">
+    <div className="absolute top-[20px] left-0 right-0 z-50 px-4 md:px-8 flex justify-center w-full pointer-events-none">
       <div className={`
+        pointer-events-auto
         flex items-center justify-between 
-        backdrop-blur-md rounded-2xl border 
-        px-4 py-3 shadow-sm transition-all duration-300
+        backdrop-blur-md rounded-full border 
+        px-5 h-12 shadow-md transition-all duration-300
+        w-[90%] md:w-max md:min-w-[600px] gap-6
         ${bgClass} ${borderClass}
       `}>
         
@@ -99,7 +101,8 @@ export const ShowcaseNavigation: React.FC<ShowcaseNavigationProps> = ({
       {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
         <div className={`
-          absolute top-full left-4 right-4 mt-2 p-4 rounded-2xl border backdrop-blur-xl shadow-lg
+          pointer-events-auto
+          absolute top-[70px] left-[5%] right-[5%] w-[90%] p-4 rounded-3xl border backdrop-blur-xl shadow-lg
           ${bgClass} ${borderClass} md:hidden flex flex-col space-y-4
         `}>
           <div className="flex flex-col space-y-2 text-sm">
