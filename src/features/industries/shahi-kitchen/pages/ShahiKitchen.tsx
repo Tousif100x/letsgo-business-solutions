@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import {
   Search,
   ShoppingBag,
@@ -15,9 +15,11 @@ import {
   CheckCircle,
   ChevronRight,
   ArrowRight,
-  ArrowLeft,
+  Loader2,
   Info
 } from 'lucide-react';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
+import { emailService } from '../../../../services/emailService';
 
 interface MenuItem {
   id: string;
@@ -36,7 +38,7 @@ interface CartItem {
 }
 
 export const ShahiKitchen: React.FC = () => {
-  const navigate = useNavigate();
+  
   
   // Custom Google Fonts loading
   useEffect(() => {
@@ -270,8 +272,8 @@ export const ShahiKitchen: React.FC = () => {
     'Kunafa Delights'
   ];
 
-  // States
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  // UI State
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [vegOnly, setVegOnly] = useState(false);
   const [cart, setCart] = useState<CartItem[]>([]);
@@ -290,6 +292,9 @@ export const ShahiKitchen: React.FC = () => {
     status: 'success' | 'warning' | 'error' | null;
     message: string;
   }>({ status: null, message: '' });
+
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>('');
 
   // Refs for scrolling
   const menuSectionRef = useRef<HTMLDivElement>(null);
@@ -386,11 +391,12 @@ export const ShahiKitchen: React.FC = () => {
   };
 
   // Generate WhatsApp Order Payload and redirect
-  const handleWhatsAppOrderSubmit = (e: React.FormEvent) => {
+  const handleWhatsAppOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg('');
 
     if (!customerName || !customerPhone || !customerAddress) {
-      alert('Please fill out Name, Phone Number, and Delivery Address to complete your order.');
+      setErrorMsg('Please fill out Name, Phone Number, and Delivery Address to complete your order.');
       return;
     }
 
@@ -441,13 +447,32 @@ _Generated via ShahiKitchen.com_`;
     const encodedText = encodeURIComponent(orderPayload);
     const whatsappUrl = `https://wa.me/919111221940?text=${encodedText}`;
     
-    // Redirect to WhatsApp
-    window.open(whatsappUrl, '_blank');
+    setIsSubmitting(true);
     
-    // Clear cart and close drawer
-    setCart([]);
-    setIsCartOpen(false);
-    alert('Order details sent to WhatsApp! Press "Send" in the WhatsApp chat to submit your order to the Shahi Kitchen manager.');
+    const leadPayload = {
+      fullName: customerName,
+      phone: customerPhone,
+      businessName: 'Shahi Kitchen Client',
+      inquiryType: 'Food Order',
+      projectRequirement: `Order Details:\n${itemsText}\nArea: ${customerArea}\nLandmark: ${customerLandmark}\nTotal: ₹${total}`,
+      showcaseName: 'Shahi Kitchen',
+    };
+    
+    const res = await emailService.submitEnquiry(leadPayload);
+    
+    if (res.success) {
+      // Redirect to WhatsApp
+      window.open(whatsappUrl, '_blank');
+      
+      // Clear cart and close drawer
+      setCart([]);
+      setIsCartOpen(false);
+      alert(`Order details sent to WhatsApp! Press "Send" in the WhatsApp chat to submit your order. Reference ID: ${res.referenceId}`);
+    } else {
+      setErrorMsg(res.message);
+    }
+    
+    setIsSubmitting(false);
   };
 
   const handleScroll = (ref: React.RefObject<HTMLDivElement | null>) => {
@@ -470,7 +495,14 @@ _Generated via ShahiKitchen.com_`;
 
   return (
     <div className="min-h-screen bg-[#111111] text-brand-white font-outfit selection:bg-brand-orange selection:text-white">
-            
+      <ShowcaseNavigation 
+        sectorName="Food & Restaurant" 
+        sectorSlug="food-restaurant" 
+        showcaseName="Shahi Kitchen" 
+        accentColor="#e0b252" 
+        theme="dark" 
+      />
+      
       {/* 1. APP-LIKE FIXED BOTTOM NAVIGATION (MOBILE ONLY) */}
       <style>{`
         .font-script {
@@ -492,17 +524,8 @@ _Generated via ShahiKitchen.com_`;
       `}</style>
 
       {/* Main Header / Navigation */}
-      <header className="sticky top-0 z-40 bg-[#1E0D07]/95 border-b border-[#FAF5EB]/10 backdrop-blur-md shadow-xl py-3 px-6 md:px-12">
+      <header className="sticky top-0 z-40 bg-[#1E0D07]/95 border-b border-[#FAF5EB]/10 backdrop-blur-md shadow-xl py-3 px-6 md:px-12 mt-16">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          
-          {/* Back Button (Hub Exit) */}
-          <button 
-            onClick={() => navigate('/sectors/hospitality')}
-            className="flex items-center text-xs tracking-wider uppercase font-semibold text-[#FAF5EB]/60 hover:text-[#FAF5EB] transition-colors"
-          >
-            <ArrowLeft size={16} className="mr-1.5" />
-            <span className="hidden sm:inline">Back</span>
-          </button>
 
           {/* Shahi Kitchen Brand Logo */}
           <div className="flex flex-col items-center justify-center text-center cursor-pointer select-none" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
@@ -1649,13 +1672,22 @@ _Generated via ShahiKitchen.com_`;
                   </div>
                 </div>
 
+                {errorMsg && <div className="text-red-500 text-xs font-semibold text-center">{errorMsg}</div>}
+                
                 {/* Submit Order Button */}
                 <button 
                   onClick={handleWhatsAppOrderSubmit}
-                  className="w-full py-4 bg-[#27AE60] hover:bg-[#219653] text-white font-bold text-xs tracking-widest uppercase rounded-2xl shadow-lg transition-all flex items-center justify-center space-x-2"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-[#27AE60] hover:bg-[#219653] text-white font-bold text-xs tracking-widest uppercase rounded-2xl shadow-lg transition-all flex items-center justify-center space-x-2 disabled:opacity-70"
                 >
-                  <Phone size={14} className="fill-current" />
-                  <span>Send Order to WhatsApp</span>
+                  {isSubmitting ? (
+                    <><Loader2 className="w-4 h-4 animate-spin mr-2" /> <span>Sending...</span></>
+                  ) : (
+                    <>
+                      <Phone size={14} className="fill-current" />
+                      <span>Send Order to WhatsApp</span>
+                    </>
+                  )}
                 </button>
 
                 <p className="text-[9px] text-center text-[#FAF5EB]/45 leading-relaxed">

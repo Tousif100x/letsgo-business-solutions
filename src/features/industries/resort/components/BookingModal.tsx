@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { X, Calculator, Gift, ArrowRight } from 'lucide-react';
+
+import { X, Calculator, Gift, ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import { Button } from '../../../../components/common/Button';
+import { emailService } from '../../../../services/emailService';
 
 interface RoomType {
   name: string;
@@ -26,7 +27,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   onClose,
   selectedRoomName,
 }) => {
-  const navigate = useNavigate();
+  
   const [selectedRoom, setSelectedRoom] = useState<RoomType>(ROOM_OPTIONS[0]);
   const [nights, setNights] = useState<number>(3);
   const [adults, setAdults] = useState<number>(2);
@@ -35,6 +36,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const [addYacht, setAddYacht] = useState<boolean>(false);
   const [addTransfer, setAddTransfer] = useState<boolean>(false);
   const [checkInDate, setCheckInDate] = useState<string>('2026-10-24');
+  
+  const [fullName, setFullName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  const [referenceId, setReferenceId] = useState('');
 
   // Sync selected room from parent prop
   useEffect(() => {
@@ -53,28 +63,50 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const transferTotal = addTransfer ? 7500 : 0;
   const estimatedTotal = roomBaseTotal + spaTotal + yachtTotal + transferTotal;
 
-  const handleBookingRequest = (e: React.FormEvent) => {
+  const handleBookingRequest = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg('');
+
+    if (!fullName || !phone) {
+      setErrorMsg('Please provide your name and phone number.');
+      return;
+    }
 
     const selectedExtras = [];
     if (addSpa) selectedExtras.push('Spa & Wellness Treatment');
     if (addYacht) selectedExtras.push('Yacht Coastal Tour');
     if (addTransfer) selectedExtras.push('Private Airport Transfer');
 
-    navigate('/contact', {
-      state: {
-        contextType: 'showcase',
-        contextName: 'Grand Horizon Resort & Spa',
-        bookingDetails: {
-          roomName: selectedRoom.name,
-          checkIn: checkInDate,
-          nights,
-          guests: `${adults} Adults ${children > 0 ? `, ${children} Children` : ''}`,
-          extras: selectedExtras,
-          estimatedTotal,
-        },
-      },
-    });
+    setIsSubmitting(true);
+
+    const requirementStr = `
+      Room: ${selectedRoom.name}
+      Check-In: ${checkInDate}
+      Duration: ${nights} nights
+      Guests: ${adults} Adults ${children > 0 ? `, ${children} Children` : ''}
+      Extras: ${selectedExtras.join(', ')}
+      Estimated Total: ₹${estimatedTotal.toLocaleString('en-IN')}
+    `;
+
+    const payload = {
+      fullName,
+      phone,
+      email,
+      businessName: 'Grand Horizon Client',
+      inquiryType: 'Resort Booking',
+      projectRequirement: requirementStr,
+      showcaseName: 'Grand Horizon',
+    };
+
+    const res = await emailService.submitEnquiry(payload);
+    if (res.success) {
+      if (res.referenceId) setReferenceId(res.referenceId);
+      setIsSubmitted(true);
+    } else {
+      setErrorMsg(res.message);
+    }
+    
+    setIsSubmitting(false);
   };
 
   return (
@@ -99,7 +131,18 @@ export const BookingModal: React.FC<BookingModalProps> = ({
         </div>
 
         {/* Content Body */}
-        <form onSubmit={handleBookingRequest} className="p-6 overflow-y-auto flex-grow space-y-6">
+        {isSubmitted ? (
+          <div className="p-12 flex flex-col items-center justify-center text-center">
+            <CheckCircle2 className="w-16 h-16 text-brand-forest mb-4" />
+            <h3 className="font-serif text-xl font-bold tracking-wide text-brand-charcoal mb-2">Request Submitted</h3>
+            <p className="text-sm text-brand-charcoal/70 mb-4">Our booking concierge will contact you soon to confirm your reservation details.</p>
+            <div className="mb-6 bg-brand-ivory px-4 py-2 rounded border border-brand-beige">
+              <span className="text-xs font-semibold text-brand-forest">Reference: {referenceId}</span>
+            </div>
+            <Button onClick={onClose} variant="primary">Close Window</Button>
+          </div>
+        ) : (
+        <form onSubmit={handleBookingRequest} className="p-6 overflow-y-auto flex-grow space-y-6 custom-scrollbar">
           
           <div className="bg-brand-gold/5 border border-brand-gold/15 rounded p-4 flex items-start space-x-3">
             <Gift className="text-brand-gold w-5 h-5 stroke-[1.5] shrink-0 mt-0.5" />
@@ -112,6 +155,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             
             {/* Left Column: Form Inputs */}
             <div className="space-y-4">
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/60 mb-2">Name *</label>
+                  <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} disabled={isSubmitting} className="w-full bg-brand-ivory border border-brand-beige rounded px-3 py-2 text-xs focus:outline-none focus:border-brand-forest" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/60 mb-2">Phone *</label>
+                  <input type="tel" value={phone} onChange={e => setPhone(e.target.value)} disabled={isSubmitting} className="w-full bg-brand-ivory border border-brand-beige rounded px-3 py-2 text-xs focus:outline-none focus:border-brand-forest" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/60 mb-2">Email</label>
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} disabled={isSubmitting} className="w-full bg-brand-ivory border border-brand-beige rounded px-3 py-2 text-xs focus:outline-none focus:border-brand-forest" />
+              </div>
+
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/60 mb-2">
                   Select Accommodation
@@ -276,16 +335,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </div>
           </div>
 
+          {errorMsg && <div className="text-red-500 text-xs text-center">{errorMsg}</div>}
+
           <Button
             type="submit"
             variant="primary"
             fullWidth
-            className="py-3.5 flex items-center justify-center space-x-2 group"
+            disabled={isSubmitting}
+            className="py-3.5 flex items-center justify-center space-x-2 group disabled:opacity-70"
           >
-            <span>Request Booking Proposal</span>
-            <ArrowRight size={14} className="ml-1 transition-transform duration-300 group-hover:translate-x-0.5" />
+            {isSubmitting ? (
+              <><Loader2 className="w-4 h-4 animate-spin mr-2" /> <span>Requesting...</span></>
+            ) : (
+              <>
+                <span>Request Booking Proposal</span>
+                <ArrowRight size={14} className="ml-1 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </>
+            )}
           </Button>
         </form>
+        )}
       </div>
     </div>
   );

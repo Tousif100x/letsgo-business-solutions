@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import emailjs from '@emailjs/browser';
 import { Input } from '../common/Input';
+import { emailService } from '../../services/emailService';
 import { Button } from '../common/Button';
 import { Card } from '../common/Card';
 import { Send, CheckCircle2, MessageSquare, Phone } from 'lucide-react';
@@ -182,50 +182,35 @@ I am interested in setting up a similar interactive styling consultation booking
     window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
 
-    // Fetch EmailJS configs
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const payload = {
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      businessName: formData.companyName,
+      inquiryType: formData.interestType,
+      projectRequirement: formData.message,
+      showcaseName: 'Main LETSGO Platform',
+    };
 
-    // Generate reference code
-    const generatedRef = `LBS-2026-${Math.floor(100 + Math.random() * 900)}`;
-    setReferenceId(generatedRef);
-
-    if (serviceId && templateId && publicKey) {
-      const templateParams = {
-        from_name: formData.fullName,
-        from_email: formData.email,
-        phone: formData.phone,
-        company: formData.companyName,
-        interest: formData.interestType,
-        message: formData.message,
-        reference_id: generatedRef,
-      };
-
-      emailjs.send(serviceId, templateId, templateParams, publicKey)
-        .then(() => {
-          setIsSubmitting(false);
-          setIsSubmitted(true);
-        })
-        .catch((err) => {
-          console.error('EmailJS Send Failure:', err);
-          // Fallback simulation so visual checks pass
-          setIsSubmitting(false);
-          setIsSubmitted(true);
-        });
+    const response = await emailService.submitEnquiry(payload);
+    
+    if (response.success) {
+      if (response.referenceId) setReferenceId(response.referenceId);
+      setIsSubmitted(true);
     } else {
-      // Fallback simulation
-      setTimeout(() => {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-      }, 1000);
+      console.error(response.message);
+      // Even if it fails, we show submitted for visual UX (or we could show an error toast)
+      // Since requirements say show failure message, let's just alert for now or set an error state
+      alert(response.message);
     }
+    
+    setIsSubmitting(false);
   };
 
   if (isSubmitted) {

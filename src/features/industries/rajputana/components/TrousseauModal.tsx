@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { X, Calendar, Sparkles, ArrowRight, User } from 'lucide-react';
+
+import { X, Calendar, Sparkles, ArrowRight, User, CheckCircle2, Loader2 } from 'lucide-react';
 import { Button } from '../../../../components/common/Button';
+import { emailService } from '../../../../services/emailService';
 
 interface ConsultationType {
   name: string;
@@ -48,7 +49,7 @@ export const TrousseauModal: React.FC<TrousseauModalProps> = ({
   selectedTypeName,
   preselectedLook,
 }) => {
-  const navigate = useNavigate();
+  
   
   // Custom states
   const [selectedType, setSelectedType] = useState<ConsultationType>(CONSULTATION_TYPES[0]);
@@ -60,6 +61,15 @@ export const TrousseauModal: React.FC<TrousseauModalProps> = ({
   const [addFabricSwatches, setAddFabricSwatches] = useState<boolean>(false);
   const [addAccessoryMatching, setAddAccessoryMatching] = useState<boolean>(false);
   const [addArchiveAccess, setAddArchiveAccess] = useState<boolean>(false);
+
+  const [fullName, setFullName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  const [referenceId, setReferenceId] = useState('');
 
   // Sync selected type from parent prop
   useEffect(() => {
@@ -80,28 +90,50 @@ export const TrousseauModal: React.FC<TrousseauModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleRequest = (e: React.FormEvent) => {
+  const handleRequest = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg('');
+
+    if (!fullName || !phone) {
+      setErrorMsg('Please provide your name and phone number.');
+      return;
+    }
 
     const selectedExtras = [];
     if (addFabricSwatches) selectedExtras.push('Heirloom Fabric Swatch Book');
     if (addAccessoryMatching) selectedExtras.push('Jadau Jewellery Coord Styling');
     if (addArchiveAccess) selectedExtras.push('Private Archive Room Walkthrough');
 
-    navigate('/contact', {
-      state: {
-        contextType: 'showcase',
-        contextName: 'Rajputana Heritage',
-        stylingDetails: {
-          consultationType: selectedType.name,
-          format,
-          stylist: selectedStylist.name,
-          extras: selectedExtras,
-          styleGoals,
-          preselectedLook: preselectedLook || 'None',
-        },
-      },
-    });
+    setIsSubmitting(true);
+
+    const requirementStr = `
+      Consultation: ${selectedType.name}
+      Format: ${format}
+      Stylist: ${selectedStylist.name}
+      Extras: ${selectedExtras.join(', ')}
+      Goals: ${styleGoals}
+      Preselected Look: ${preselectedLook || 'None'}
+    `;
+
+    const payload = {
+      fullName,
+      phone,
+      email,
+      businessName: 'Rajputana Personal Styling',
+      inquiryType: 'Heritage Consultation',
+      projectRequirement: requirementStr,
+      showcaseName: 'Rajputana Heritage',
+    };
+
+    const res = await emailService.submitEnquiry(payload);
+    if (res.success) {
+      if (res.referenceId) setReferenceId(res.referenceId);
+      setIsSubmitted(true);
+    } else {
+      setErrorMsg(res.message);
+    }
+    
+    setIsSubmitting(false);
   };
 
   return (
@@ -126,7 +158,18 @@ export const TrousseauModal: React.FC<TrousseauModalProps> = ({
         </div>
 
         {/* Content Body */}
-        <form onSubmit={handleRequest} className="p-6 overflow-y-auto flex-grow space-y-6">
+        {isSubmitted ? (
+          <div className="p-12 flex flex-col items-center justify-center text-center">
+            <CheckCircle2 className="w-16 h-16 text-[#1E4620] mb-4" />
+            <h3 className="font-serif text-xl font-bold tracking-wide text-[#1E4620] mb-2">Request Submitted</h3>
+            <p className="text-sm text-[#262626]/70 mb-4">Our Atelier Curation Director will contact you soon to confirm your consultation schedule.</p>
+            <div className="mb-6 bg-[#1E4620]/10 px-4 py-2 rounded border border-[#1E4620]/20">
+              <span className="text-xs font-semibold text-[#1E4620]">Reference: {referenceId}</span>
+            </div>
+            <Button onClick={onClose} className="bg-[#1E4620] text-white">Close Window</Button>
+          </div>
+        ) : (
+        <form onSubmit={handleRequest} className="p-6 overflow-y-auto flex-grow space-y-6 custom-scrollbar">
           
           <div className="bg-[#1E4620]/5 border border-[#1E4620]/15 rounded-xl p-4 flex items-start space-x-3">
             <Sparkles className="text-[#C5A059] w-5 h-5 shrink-0 mt-0.5" />
@@ -140,6 +183,21 @@ export const TrousseauModal: React.FC<TrousseauModalProps> = ({
             {/* Left Section: Luxury Intake Forms (7 cols) */}
             <div className="md:col-span-7 space-y-5">
               
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-[#262626]/60 mb-2">Name *</label>
+                  <input type="text" value={fullName} onChange={e => setFullName(e.target.value)} disabled={isSubmitting} className="w-full bg-[#EFE8DB]/35 border border-[#C5A059]/25 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#1E4620]" />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-widest text-[#262626]/60 mb-2">Phone *</label>
+                  <input type="tel" value={phone} onChange={e => setPhone(e.target.value)} disabled={isSubmitting} className="w-full bg-[#EFE8DB]/35 border border-[#C5A059]/25 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#1E4620]" />
+                </div>
+              </div>
+              <div>
+                <label className="block text-[10px] font-bold uppercase tracking-widest text-[#262626]/60 mb-2">Email</label>
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} disabled={isSubmitting} className="w-full bg-[#EFE8DB]/35 border border-[#C5A059]/25 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-[#1E4620]" />
+              </div>
+
               {/* Style Goals Text Area */}
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-widest text-[#262626]/60 mb-2">
@@ -288,16 +346,26 @@ export const TrousseauModal: React.FC<TrousseauModalProps> = ({
             </div>
           </div>
 
+          {errorMsg && <div className="text-red-500 text-xs text-center">{errorMsg}</div>}
+          
           <Button
             type="submit"
             variant="primary"
             fullWidth
-            className="bg-[#1E4620] text-white hover:bg-[#1E4620]/95 border border-[#C5A059]/30 py-3.5 flex items-center justify-center space-x-2 group text-xs uppercase tracking-widest font-bold"
+            disabled={isSubmitting}
+            className="bg-[#1E4620] text-white hover:bg-[#1E4620]/95 border border-[#C5A059]/30 py-3.5 flex items-center justify-center space-x-2 group text-xs uppercase tracking-widest font-bold disabled:opacity-70"
           >
-            <span>Request Heritage Consultation</span>
-            <ArrowRight size={14} className="ml-1 transition-transform duration-300 group-hover:translate-x-0.5" />
+            {isSubmitting ? (
+              <><Loader2 className="w-4 h-4 animate-spin mr-2" /> <span>Requesting...</span></>
+            ) : (
+              <>
+                <span>Request Heritage Consultation</span>
+                <ArrowRight size={14} className="ml-1 transition-transform duration-300 group-hover:translate-x-0.5" />
+              </>
+            )}
           </Button>
         </form>
+        )}
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { MainLayout } from '../../../../components/layout/MainLayout';
 import { Button } from '../../../../components/common/Button';
 import { TrousseauModal } from '../components/TrousseauModal';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 import {
   Compass,
   Award,
@@ -49,6 +50,13 @@ export const RajputanaJewellery: React.FC = () => {
 
   return (
     <MainLayout>
+      <ShowcaseNavigation 
+        sectorName="Heritage & Tourism" 
+        sectorSlug="heritage-tourism" 
+        showcaseName="Rajputana Jewellery" 
+        accentColor="#C8A15A" 
+        theme="light" 
+      />
       <div 
         style={{
           backgroundColor: '#FAF6EE',

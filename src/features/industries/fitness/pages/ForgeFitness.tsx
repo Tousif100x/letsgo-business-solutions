@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import {
   Dumbbell, Zap, Star, ChevronRight, ChevronLeft,
   Clock, MapPin, Phone, MessageCircle, Play, Check,
-  Flame, Target, TrendingUp, Shield, X, ArrowDown, Award, BarChart2, Activity
+  Flame, Target, TrendingUp, Shield, X, ArrowDown, Award, BarChart2, Activity, Loader2
 } from 'lucide-react';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
+import { emailService } from '../../../../services/emailService';
 
 // ─── TYPES ──────────────────────────────────────────────────────────────────
 interface ExperienceZone {
@@ -308,6 +310,10 @@ export const ForgeFitness: React.FC = () => {
   const [trialName, setTrialName] = useState('');
   const [trialPhone, setTrialPhone] = useState('');
   const [trialGoal, setTrialGoal] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>('');
+  const [referenceId, setReferenceId] = useState<string>('');
 
   const members13k = useCountUp(13000, 2200);
   const trainers70 = useCountUp(70, 1800);
@@ -350,10 +356,34 @@ export const ForgeFitness: React.FC = () => {
     setBmiResult({ value: bmi.toFixed(1), category });
   };
 
-  const handleTrialSubmit = (e: React.FormEvent) => {
+  const handleTrialSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!trialName || !trialPhone) return;
-    openWhatsApp(`Hi, I would like to book a free trial.\nName: ${trialName}\nPhone: ${trialPhone}\nGoal: ${trialGoal}`);
+    setErrorMsg('');
+    if (!trialName || !trialPhone) {
+      setErrorMsg('Name and phone are required.');
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    const payload = {
+      fullName: trialName,
+      phone: trialPhone,
+      businessName: 'Forge Fitness Gym',
+      inquiryType: 'Free Trial',
+      projectRequirement: `Goal: ${trialGoal || 'None specified'}`,
+      showcaseName: 'Forge Fitness',
+    };
+    
+    const res = await emailService.submitEnquiry(payload);
+    if (res.success) {
+      if (res.referenceId) setReferenceId(res.referenceId);
+      setIsSubmitted(true);
+    } else {
+      setErrorMsg(res.message);
+    }
+    
+    setIsSubmitting(false);
   };
 
   const navLinks = [
@@ -367,6 +397,13 @@ export const ForgeFitness: React.FC = () => {
 
   return (
     <div className="bg-[#0A0A0A] text-white font-sans min-h-screen overflow-x-hidden">
+      <ShowcaseNavigation 
+        sectorName="Fitness & Recreation" 
+        sectorSlug="fitness-recreation" 
+        showcaseName="Forge Fitness Club" 
+        accentColor="#D4FF00" 
+        theme="dark" 
+      />
       
       {/* ── FONTS & STYLES ── */}
       <style>{`
@@ -399,10 +436,10 @@ export const ForgeFitness: React.FC = () => {
           NAVIGATION
       ───────────────────────────────────────────────── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 font-body ${
+        className={`fixed left-0 right-0 z-[100] transition-all duration-300 font-body ${
           scrolled
-            ? 'bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#D4FF00]/10 py-3'
-            : 'bg-transparent py-5'
+            ? 'top-0 bg-[#0A0A0A]/95 backdrop-blur-md border-b border-[#D4FF00]/10 py-3'
+            : 'top-[60px] bg-transparent py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
@@ -1268,61 +1305,80 @@ export const ForgeFitness: React.FC = () => {
               {/* Right Form */}
               <div className="bg-[#0A0A0A] rounded-2xl p-8 border border-[#222]">
                 <h3 className="font-forge text-2xl font-bold text-white uppercase mb-6 border-b border-[#222] pb-4">Secure Your Pass</h3>
-                <form onSubmit={handleTrialSubmit} className="space-y-5">
-                  <div className="space-y-2">
-                    <label className="text-[#888] text-[10px] font-bold uppercase tracking-wider">Full Name</label>
-                    <input 
-                      type="text" 
-                      required
-                      value={trialName}
-                      onChange={e => setTrialName(e.target.value)}
-                      placeholder="Enter your name" 
-                      className="w-full bg-[#161616] border border-[#333] rounded-sm px-4 py-3.5 text-white text-sm focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] outline-none"
-                    />
+                {isSubmitted ? (
+                  <div className="flex flex-col items-center justify-center py-12 text-center">
+                    <Check size={64} className="text-[#D4FF00] mb-4" />
+                    <h4 className="font-forge text-3xl font-bold text-white uppercase mb-2">Pass Secured!</h4>
+                    <p className="text-[#888] text-sm mb-4">Your free trial pass has been activated. A coach will contact you shortly to confirm your visit.</p>
+                    <div className="inline-block bg-[#111] px-4 py-2 rounded border border-[#333]">
+                      <span className="text-xs font-bold text-[#D4FF00] tracking-widest uppercase">REF: {referenceId}</span>
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-[#888] text-[10px] font-bold uppercase tracking-wider">Phone Number</label>
-                    <input 
-                      type="tel" 
-                      required
-                      value={trialPhone}
-                      onChange={e => setTrialPhone(e.target.value)}
-                      placeholder="Enter mobile number" 
-                      className="w-full bg-[#161616] border border-[#333] rounded-sm px-4 py-3.5 text-white text-sm focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] outline-none"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-[#888] text-[10px] font-bold uppercase tracking-wider">Fitness Goal (Optional)</label>
-                    <select 
-                      value={trialGoal}
-                      onChange={e => setTrialGoal(e.target.value)}
-                      className="w-full bg-[#161616] border border-[#333] rounded-sm px-4 py-3.5 text-white text-sm focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] outline-none appearance-none"
-                    >
-                      <option value="">Select your goal...</option>
-                      <option value="Weight Loss">Weight Loss</option>
-                      <option value="Muscle Gain">Muscle Gain</option>
-                      <option value="Strength">Strength & Power</option>
-                      <option value="General Fitness">General Fitness</option>
-                    </select>
-                  </div>
-                  <div className="pt-2">
-                    <button 
-                      type="submit"
-                      className="w-full py-4 bg-[#D4FF00] text-[#0A0A0A] font-black text-sm uppercase tracking-wider rounded-sm hover:bg-[#C8F500] transition-all neon-glow-btn flex items-center justify-center space-x-2 mb-3"
-                    >
-                      <span>Book Trial via WhatsApp</span>
-                      <ChevronRight size={18} />
-                    </button>
-                    <button 
-                      type="button"
-                      onClick={() => openWhatsApp()}
-                      className="w-full py-3.5 border-2 border-[#333] text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:border-[#D4FF00] hover:text-[#D4FF00] transition-all flex items-center justify-center space-x-2"
-                    >
-                      <MessageCircle size={16} />
-                      <span>Just Chat on WhatsApp</span>
-                    </button>
-                  </div>
-                </form>
+                ) : (
+                  <form onSubmit={handleTrialSubmit} className="space-y-5">
+                    <div className="space-y-2">
+                      <label className="text-[#888] text-[10px] font-bold uppercase tracking-wider">Full Name</label>
+                      <input 
+                        type="text" 
+                        required
+                        disabled={isSubmitting}
+                        value={trialName}
+                        onChange={e => setTrialName(e.target.value)}
+                        placeholder="Enter your name" 
+                        className="w-full bg-[#161616] border border-[#333] rounded-sm px-4 py-3.5 text-white text-sm focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[#888] text-[10px] font-bold uppercase tracking-wider">Phone Number</label>
+                      <input 
+                        type="tel" 
+                        required
+                        disabled={isSubmitting}
+                        value={trialPhone}
+                        onChange={e => setTrialPhone(e.target.value)}
+                        placeholder="Enter mobile number" 
+                        className="w-full bg-[#161616] border border-[#333] rounded-sm px-4 py-3.5 text-white text-sm focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] outline-none"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-[#888] text-[10px] font-bold uppercase tracking-wider">Fitness Goal (Optional)</label>
+                      <select 
+                        value={trialGoal}
+                        onChange={e => setTrialGoal(e.target.value)}
+                        disabled={isSubmitting}
+                        className="w-full bg-[#161616] border border-[#333] rounded-sm px-4 py-3.5 text-white text-sm focus:border-[#D4FF00] focus:ring-1 focus:ring-[#D4FF00] outline-none appearance-none"
+                      >
+                        <option value="">Select your goal...</option>
+                        <option value="Weight Loss">Weight Loss</option>
+                        <option value="Muscle Gain">Muscle Gain</option>
+                        <option value="Strength">Strength & Power</option>
+                        <option value="General Fitness">General Fitness</option>
+                      </select>
+                    </div>
+                    {errorMsg && <div className="text-red-500 text-xs text-center">{errorMsg}</div>}
+                    <div className="pt-2">
+                      <button 
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="w-full py-4 bg-[#D4FF00] text-[#0A0A0A] font-black text-sm uppercase tracking-wider rounded-sm hover:bg-[#C8F500] transition-all neon-glow-btn flex items-center justify-center space-x-2 mb-3 disabled:opacity-70 disabled:hover:bg-[#D4FF00]"
+                      >
+                        {isSubmitting ? (
+                          <><Loader2 className="w-5 h-5 animate-spin mr-2" /> <span>Securing Pass...</span></>
+                        ) : (
+                          <><span>Book Free Trial</span><ChevronRight size={18} /></>
+                        )}
+                      </button>
+                      <button 
+                        type="button"
+                        onClick={() => openWhatsApp()}
+                        className="w-full py-3.5 border-2 border-[#333] text-white font-bold text-xs uppercase tracking-wider rounded-sm hover:border-[#D4FF00] hover:text-[#D4FF00] transition-all flex items-center justify-center space-x-2"
+                      >
+                        <MessageCircle size={16} />
+                        <span>Just Chat on WhatsApp</span>
+                      </button>
+                    </div>
+                  </form>
+                )}
               </div>
 
             </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { MainLayout } from '../../../../components/layout/MainLayout';
 import { Button } from '../../../../components/common/Button';
 import { TrousseauModal } from '../components/TrousseauModal';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 import {
   Compass,
   Award,
@@ -234,6 +235,13 @@ export const RajputanaHome: React.FC = () => {
 
   return (
     <MainLayout>
+      <ShowcaseNavigation 
+        sectorName="Heritage & Tourism" 
+        sectorSlug="heritage-tourism" 
+        showcaseName="Rajputana Heritage" 
+        accentColor="#C8A15A" 
+        theme="light" 
+      />
       <div 
         style={{
           backgroundColor: '#FAF6EE',

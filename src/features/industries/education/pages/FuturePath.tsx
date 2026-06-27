@@ -14,8 +14,11 @@ import {
   Check,
   X,
   Shield,
+  Loader2,
   ChevronDown
 } from 'lucide-react';
+import { emailService } from '../../../../services/emailService';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 
 interface SubjectItem {
   id: string;
@@ -118,6 +121,9 @@ export const FuturePath: React.FC = () => {
     batch: 'Foundation Batch'
   });
   const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>('');
+  const [referenceId, setReferenceId] = useState<string>('');
 
   // Custom Google Fonts loading for Playful Gen-Z Theme
   useEffect(() => {
@@ -136,39 +142,45 @@ export const FuturePath: React.FC = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg('');
     if (!formData.name || !formData.phone) {
-      alert('Please fill out all required fields.');
+      setErrorMsg('Please fill out all required fields.');
       return;
     }
     
-    // Save to local storage
-    localStorage.setItem('futurepath_demo_lead', JSON.stringify(formData));
-    setFormSubmitted(true);
-
-    // Format WhatsApp message
-    const message = `Hello, I would like information regarding admissions and to book a free demo:
-- Name: ${formData.name}
-- Phone: ${formData.phone}
-- Class/Grade: ${formData.grade}
-- Preferred Batch: ${formData.batch}`;
+    setIsSubmitting(true);
     
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/919526543210?text=${encodedMessage}`;
+    const payload = {
+      fullName: formData.name,
+      phone: formData.phone,
+      businessName: 'FuturePath Learning Hub',
+      inquiryType: 'Free Demo Request',
+      projectRequirement: `Grade: ${formData.grade}, Batch: ${formData.batch}`,
+      showcaseName: 'FuturePath Learning Hub',
+    };
     
-    setTimeout(() => {
-      window.open(whatsappUrl, '_blank');
-      setFormSubmitted(false);
-      setShowDemoModal(false);
-      // Reset form
-      setFormData({
-        name: '',
-        phone: '',
-        grade: 'Class 6-8',
-        batch: 'Foundation Batch'
-      });
-    }, 1500);
+    const res = await emailService.submitEnquiry(payload);
+    if (res.success) {
+      if (res.referenceId) setReferenceId(res.referenceId);
+      setFormSubmitted(true);
+      // Optional: hide modal after a delay
+      setTimeout(() => {
+        setFormSubmitted(false);
+        setShowDemoModal(false);
+        setFormData({
+          name: '',
+          phone: '',
+          grade: 'Class 6-8',
+          batch: 'Foundation Batch'
+        });
+      }, 3000);
+    } else {
+      setErrorMsg(res.message);
+    }
+    
+    setIsSubmitting(false);
   };
 
   const handleWhatsAppEnquiry = () => {
@@ -608,6 +620,13 @@ export const FuturePath: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white text-[#111827] font-sans antialiased overflow-x-hidden relative selection:bg-teal-200 selection:text-teal-900 pb-1">
+      <ShowcaseNavigation 
+        sectorName="Education" 
+        sectorSlug="education" 
+        showcaseName="FuturePath Learning Hub" 
+        accentColor="#14B8A6" 
+        theme="light" 
+      />
             {/* Dynamic font stylesheet configuration */}
       <style dangerouslySetInnerHTML={{ __html: `
         .font-fredoka { font-family: 'Fredoka', sans-serif; }
@@ -664,7 +683,7 @@ export const FuturePath: React.FC = () => {
       </div>
 
       {/* ---------------- NAVIGATION ---------------- */}
-      <nav className="relative z-40 bg-white/95 backdrop-blur-md border-b border-teal-50 py-4 px-6 md:px-12 flex items-center justify-between">
+      <nav className="relative z-40 bg-white/95 backdrop-blur-md border-b border-teal-50 py-4 px-6 md:px-12 flex items-center justify-between mt-16">
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate('/sectors/education')}>
           <div className="w-10 h-10 bg-teal-500 rounded-2xl flex items-center justify-center text-white shadow-md shadow-teal-500/20 transform rotate-3">
             <GraduationCap className="w-6 h-6" />
@@ -691,14 +710,6 @@ export const FuturePath: React.FC = () => {
             className="font-outfit text-xs font-bold uppercase tracking-wider px-5 py-2.5 bg-teal-500 text-white rounded-full hover:bg-teal-600 hover:-translate-y-0.5 transition-all duration-300 shadow-lg shadow-teal-500/20"
           >
             Book Free Demo
-          </button>
-          
-          <button 
-            onClick={() => navigate('/sectors')} 
-            className="p-2 border border-teal-100 hover:bg-teal-50 rounded-full transition-colors text-teal-600"
-            title="Back to Catalog"
-          >
-            <X size={18} />
           </button>
         </div>
       </nav>
@@ -1534,13 +1545,19 @@ export const FuturePath: React.FC = () => {
                   <div className="w-12 h-12 rounded-full bg-lime-400 text-[#111827] flex items-center justify-center mx-auto shadow-md">
                     <Check size={24} strokeWidth={3} />
                   </div>
-                  <h4 className="font-fredoka text-base text-[#111827]">Redirecting to WhatsApp...</h4>
-                  <p className="font-outfit text-xs text-[#111827]/50">
-                    We are opening WhatsApp with your prefilled query details.
+                  <h4 className="font-fredoka text-base text-[#111827]">Request Submitted!</h4>
+                  <p className="font-outfit text-xs text-[#111827]/60 mb-2">
+                    Our team will contact you shortly to arrange your demo.
                   </p>
+                  <div className="inline-block bg-teal-50 px-3 py-1.5 rounded-md border border-teal-100">
+                    <span className="font-outfit text-[10px] font-bold text-teal-700 tracking-wider">REF: {referenceId}</span>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-4 font-outfit">
+                  
+                  {errorMsg && <div className="text-red-500 text-xs font-semibold text-center">{errorMsg}</div>}
+                  
                   <div className="space-y-1">
                     <label className="text-xs font-bold uppercase tracking-wider text-[#111827]/70 block">
                       Student Name <strong className="text-red-500">*</strong>
@@ -1609,9 +1626,14 @@ export const FuturePath: React.FC = () => {
 
                   <button 
                     type="submit" 
-                    className="w-full font-outfit text-xs font-bold uppercase tracking-wider py-3.5 bg-teal-500 text-white rounded-full hover:bg-teal-600 transition-colors duration-300 mt-2 shadow-lg shadow-teal-500/10"
+                    disabled={isSubmitting}
+                    className="w-full font-outfit text-xs font-bold uppercase tracking-wider py-3.5 bg-teal-500 text-white rounded-full hover:bg-teal-600 transition-colors duration-300 mt-2 shadow-lg shadow-teal-500/10 flex items-center justify-center disabled:opacity-70"
                   >
-                    Confirm Registration & Book
+                    {isSubmitting ? (
+                      <><Loader2 className="w-4 h-4 animate-spin mr-2" /> Booking Demo...</>
+                    ) : (
+                      "Confirm Registration & Book"
+                    )}
                   </button>
                 </form>
               )}

@@ -6,6 +6,7 @@ import {
   Download, FileText, Heart, MapPin, Search, Shield, 
   Smartphone, TestTube, Users, Phone, MessageCircle, Calendar 
 } from 'lucide-react';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 
 export default function EnovaLabs() {
   const [isBookingModalOpen, setBookingModalOpen] = useState(false);
@@ -73,6 +74,13 @@ export default function EnovaLabs() {
 
   return (
     <div className="bg-[#F8FBFD] text-[#475569] font-sans antialiased overflow-x-hidden selection:bg-[#38BDF8]/20 selection:text-[#0F4C81]">
+      <ShowcaseNavigation 
+        sectorName="Healthcare" 
+        sectorSlug="healthcare" 
+        showcaseName="Enova Labs" 
+        accentColor="#0F4C81" 
+        theme="dark" 
+      />
       
       <style>{`
         @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }

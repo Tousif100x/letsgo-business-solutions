@@ -4,6 +4,7 @@ import { MainLayout } from '../../../../components/layout/MainLayout';
 import { Button } from '../../../../components/common/Button';
 import { Card } from '../../../../components/common/Card';
 import { StylingModal } from '../components/StylingModal';
+import { ShowcaseNavigation } from '../../../../components/shared/ShowcaseNavigation';
 import {
   ArrowLeft,
   ArrowRight,
@@ -143,6 +144,13 @@ export const BoutiqueHome: React.FC = () => {
 
   return (
     <MainLayout>
+      <ShowcaseNavigation 
+        sectorName="Fashion & Lifestyle" 
+        sectorSlug="fashion-lifestyle" 
+        showcaseName="AURA Atelier" 
+        accentColor="#B08D57" 
+        theme="light" 
+      />
       {/* Normalized SVG Clip Path for Mughal Arch cropping */}
       <svg width="0" height="0" className="absolute">
         <defs>
